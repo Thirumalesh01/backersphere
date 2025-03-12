@@ -11,7 +11,7 @@ import { differenceInDays } from "date-fns";
 const Index = () => {
   const { data: campaigns, isLoading } = useQuery({
     queryKey: ['featuredCampaigns'],
-    queryFn: () => campaignService.getCampaigns({ limit: 6, sort: 'trending' }),
+    queryFn: () => campaignService.getCampaigns({ sort: 'trending' }),
   });
 
   // Helper function to calculate days left
