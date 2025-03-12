@@ -13,6 +13,9 @@ import Explore from "./pages/Explore";
 import CampaignDetail from "./pages/CampaignDetail";
 import StartCampaign from "./pages/StartCampaign";
 import NotFound from "./pages/NotFound";
+import HowItWorks from "./pages/HowItWorks";
+import About from "./pages/About";
+import Categories from "./pages/Categories";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +33,9 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/explore" element={<Explore />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/about" element={<About />} />
               <Route path="/campaign/:id" element={<CampaignDetail />} />
               <Route path="/start-campaign" element={<StartCampaign />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

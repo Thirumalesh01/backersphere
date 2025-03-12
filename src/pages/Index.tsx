@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { campaignService } from "@/services/campaignService";
-import { ArrowRight, Award, Clock, DollarSign, Heart, Lightbulb, Rocket, TrendingUp } from "lucide-react";
+import { ArrowRight, Award, Clock, IndianRupee, Heart, Lightbulb, Rocket, TrendingUp } from "lucide-react";
 import { differenceInDays } from "date-fns";
 
 const Index = () => {
@@ -32,7 +32,7 @@ const Index = () => {
                 Fund Your Dreams <span className="text-primary">Together</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
-                BackerSphere connects innovators with supporters to bring creative 
+                CrowdFund connects Indian innovators with supporters to bring creative 
                 projects to life through community funding.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -53,8 +53,8 @@ const Index = () => {
                   <span>1M+ Backers</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <DollarSign className="h-5 w-5 text-primary" />
-                  <span>$150M+ Funded</span>
+                  <IndianRupee className="h-5 w-5 text-primary" />
+                  <span>₹150M+ Funded</span>
                 </div>
               </div>
             </div>
@@ -128,8 +128,8 @@ const Index = () => {
                             />
                           </div>
                           <div className="flex justify-between text-sm">
-                            <span className="font-semibold">${campaign.currentAmount.toLocaleString()}</span>
-                            <span className="text-muted-foreground">{Math.round((campaign.currentAmount / campaign.fundingGoal) * 100)}% of ${campaign.fundingGoal.toLocaleString()}</span>
+                            <span className="font-semibold">₹{campaign.currentAmount.toLocaleString()}</span>
+                            <span className="text-muted-foreground">{Math.round((campaign.currentAmount / campaign.fundingGoal) * 100)}% of ₹{campaign.fundingGoal.toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between text-sm mt-2">
                             <span className="text-muted-foreground flex items-center gap-1">
@@ -158,7 +158,7 @@ const Index = () => {
       <section className="py-16 px-4 sm:px-6 bg-muted/50">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">How BackerSphere Works</h2>
+            <h2 className="text-3xl font-bold">How CrowdFund Works</h2>
             <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
               Our platform makes it easy to bring your ideas to life through community support
             </p>
@@ -218,7 +218,7 @@ const Index = () => {
             <div className="relative z-10 text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl">Ready to bring your creative project to life?</h2>
               <p className="text-white/90 max-w-xl mb-8">
-                Join thousands of creators who have successfully funded their projects on BackerSphere. 
+                Join thousands of creators who have successfully funded their projects on CrowdFund. 
                 Our community is ready to support your next big idea.
               </p>
               <div className="flex flex-wrap gap-4">

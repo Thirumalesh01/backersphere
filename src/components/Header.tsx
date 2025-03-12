@@ -8,7 +8,7 @@ import {
   X, 
   LogIn, 
   UserPlus,
-  Rocket
+  IndianRupee
 } from "lucide-react";
 import {
   Sheet,
@@ -31,8 +31,8 @@ const Header = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <Rocket className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold">BackerSphere</span>
+          <IndianRupee className="h-6 w-6 text-primary" />
+          <span className="text-xl font-bold">CrowdFund</span>
         </Link>
 
         {/* Desktop Navigation */}

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -10,7 +9,7 @@ import {
   Clock,
   TrendingUp,
   Calendar,
-  DollarSign,
+  IndianRupee,
   Filter,
   X
 } from "lucide-react";
@@ -52,7 +51,6 @@ const Explore = () => {
     }),
   });
 
-  // Helper function to calculate days left
   const calculateDaysLeft = (endDate: string) => {
     const end = new Date(endDate);
     const today = new Date();
@@ -61,7 +59,6 @@ const Explore = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // The query will automatically re-run because we included searchTerm in the queryKey
   };
 
   const clearFilters = () => {
@@ -123,7 +120,7 @@ const Explore = () => {
                 </SelectItem>
                 <SelectItem value="mostFunded">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-4 w-4" />
+                    <IndianRupee className="h-4 w-4" />
                     <span>Most Funded</span>
                   </div>
                 </SelectItem>
@@ -151,7 +148,7 @@ const Explore = () => {
                       { label: "Trending", value: "trending", icon: TrendingUp },
                       { label: "Newest", value: "newest", icon: Calendar },
                       { label: "Ending Soon", value: "endingSoon", icon: Clock },
-                      { label: "Most Funded", value: "mostFunded", icon: DollarSign },
+                      { label: "Most Funded", value: "mostFunded", icon: IndianRupee },
                     ].map((option) => (
                       <div
                         key={option.value}

@@ -7,7 +7,8 @@ import {
   Instagram, 
   Linkedin, 
   Heart,
-  Mail 
+  Mail,
+  IndianRupee
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
@@ -17,9 +18,12 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">BackerSphere</h3>
+            <div className="flex items-center gap-2">
+              <IndianRupee className="h-5 w-5 text-primary" />
+              <h3 className="text-lg font-semibold">CrowdFund</h3>
+            </div>
             <p className="text-muted-foreground text-sm">
-              Connecting innovators with supporters to bring creative projects to life through community funding.
+              Connecting Indian innovators with supporters to bring creative projects to life through community funding.
             </p>
             <div className="flex items-center space-x-3">
               <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
@@ -96,7 +100,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Subscribe</h3>
             <p className="text-sm text-muted-foreground">
-              Stay updated with the latest projects and BackerSphere news.
+              Stay updated with the latest projects and CrowdFund news.
             </p>
             <div className="flex gap-2">
               <Input placeholder="Your email" type="email" className="h-9" />
@@ -111,7 +115,7 @@ const Footer = () => {
         <div className="mt-10 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} BackerSphere. All rights reserved.
+              © {new Date().getFullYear()} CrowdFund. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <Link to="/terms" className="hover:text-foreground">Terms</Link>
