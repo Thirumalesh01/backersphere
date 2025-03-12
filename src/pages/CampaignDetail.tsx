@@ -7,7 +7,7 @@ import {
   ArrowLeft, 
   CalendarDays, 
   Clock, 
-  DollarSign, 
+  IndianRupee, 
   Heart, 
   MapPin, 
   Share2, 
@@ -16,7 +16,9 @@ import {
   Award,
   AlertCircle,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  CheckCircle2,
+  Coins
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -38,6 +40,7 @@ const CampaignDetail = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [activeReward, setActiveReward] = useState<string | null>(null);
+  const [donationSuccess, setDonationSuccess] = useState(false);
 
   const { data: campaign, isLoading, error } = useQuery({
     queryKey: ['campaign', id],
@@ -62,16 +65,27 @@ const CampaignDetail = () => {
       return;
     }
 
-    toast({
-      title: "Thank you for your donation!",
-      description: `You've successfully pledged $${donationAmount.toLocaleString()} to this campaign.`,
-    });
+    setIsLoading(true);
     
-    // In a real app, this would process the payment
-    console.log("Processing donation of", donationAmount);
+    // Simulate payment processing
+    setTimeout(() => {
+      setIsLoading(false);
+      setDonationSuccess(true);
+      
+      toast({
+        title: "Thank you for your contribution!",
+        description: `You've successfully pledged ₹${donationAmount.toLocaleString()} to this campaign.`,
+      });
+      
+      // In a real app, this would process the payment
+      console.log("Processing donation of", donationAmount);
+    }, 1500);
   };
 
-  if (isLoading) {
+  const [isLoading, setIsLoading] = useState(false);
+  const popularAmounts = [500, 1000, 2500, 5000];
+
+  if (isLoading && !campaign) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-6">
@@ -125,7 +139,7 @@ const CampaignDetail = () => {
             <div className="flex flex-wrap gap-3 mb-6">
               <Badge variant="outline" className="flex items-center gap-1">
                 <MapPin className="h-3 w-3" />
-                {campaign.location || "Global"}
+                {campaign.location || "India"}
               </Badge>
               <Badge variant="outline" className="flex items-center gap-1">
                 <User className="h-3 w-3" />
@@ -199,17 +213,20 @@ const CampaignDetail = () => {
         </div>
 
         <div className="space-y-6">
-          <Card>
+          <Card className="overflow-hidden border-primary/20">
+            <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-4 border-b border-primary/20">
+              <h2 className="text-xl font-semibold text-foreground">Support This Project</h2>
+            </div>
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="font-bold text-2xl">${campaign.currentAmount.toLocaleString()}</span>
-                    <span className="text-muted-foreground">of ${campaign.fundingGoal.toLocaleString()}</span>
+                    <span className="font-bold text-2xl flex items-center"><IndianRupee className="h-5 w-5" />{campaign.currentAmount.toLocaleString()}</span>
+                    <span className="text-muted-foreground flex items-center gap-1">of <IndianRupee className="h-3 w-3" />{campaign.fundingGoal.toLocaleString()}</span>
                   </div>
-                  <div className="w-full bg-secondary h-2 rounded-full mb-2">
+                  <div className="w-full bg-secondary h-3 rounded-full mb-2">
                     <div 
-                      className="bg-primary h-2 rounded-full" 
+                      className="bg-primary h-3 rounded-full" 
                       style={{ width: `${progressPercentage}%` }}
                     />
                   </div>
@@ -219,8 +236,8 @@ const CampaignDetail = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-muted-foreground" />
+                <div className="flex items-center gap-2 bg-primary/5 p-3 rounded-md">
+                  <Clock className="h-5 w-5 text-primary" />
                   <div>
                     <p className="font-medium">{daysLeft} days left</p>
                     <p className="text-sm text-muted-foreground">
@@ -229,46 +246,76 @@ const CampaignDetail = () => {
                   </div>
                 </div>
                 
-                <div className="pt-2 space-y-4">
-                  <h3 className="font-semibold text-lg">Make a donation</h3>
-                  
-                  <div className="grid grid-cols-3 gap-2">
-                    {[10, 25, 50, 100].map((amount) => (
-                      <Button
-                        key={amount}
-                        variant={selectedAmount === amount ? "default" : "outline"}
-                        className={amount === 100 ? "col-span-3" : ""}
-                        onClick={() => {
-                          setSelectedAmount(amount);
-                          setCustomAmount("");
+                {!donationSuccess ? (
+                  <div className="pt-2 space-y-4">
+                    <h3 className="font-semibold text-lg">Make a contribution</h3>
+                    
+                    <div className="grid grid-cols-2 gap-2">
+                      {popularAmounts.map((amount) => (
+                        <Button
+                          key={amount}
+                          variant={selectedAmount === amount ? "default" : "outline"}
+                          className={`flex items-center gap-1 ${selectedAmount === amount ? 'bg-primary' : 'border-primary/30 hover:bg-primary/10'}`}
+                          onClick={() => {
+                            setSelectedAmount(amount);
+                            setCustomAmount("");
+                          }}
+                        >
+                          <IndianRupee className="h-3.5 w-3.5" />{amount}
+                        </Button>
+                      ))}
+                    </div>
+                    
+                    <div className="relative">
+                      <IndianRupee className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <input
+                        type="text"
+                        placeholder="Custom amount"
+                        className="w-full pl-9 rounded-md border border-input bg-background px-3 py-2 text-sm"
+                        value={customAmount}
+                        onChange={(e) => {
+                          setCustomAmount(e.target.value);
+                          setSelectedAmount(null);
                         }}
-                      >
-                        ${amount}
-                      </Button>
-                    ))}
+                      />
+                    </div>
+                    
+                    <Button 
+                      className="w-full gap-2"
+                      onClick={handleDonate}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <>Processing...</>
+                      ) : (
+                        <>
+                          <Coins className="h-4 w-4" /> Contribute Now
+                        </>
+                      )}
+                    </Button>
+
+                    <div className="text-xs text-muted-foreground text-center">
+                      By contributing, you agree to our Terms of Service and Privacy Policy
+                    </div>
                   </div>
-                  
-                  <div className="relative">
-                    <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <input
-                      type="text"
-                      placeholder="Custom amount"
-                      className="w-full pl-9 rounded-md border border-input bg-background px-3 py-2 text-sm"
-                      value={customAmount}
-                      onChange={(e) => {
-                        setCustomAmount(e.target.value);
-                        setSelectedAmount(null);
-                      }}
-                    />
+                ) : (
+                  <div className="pt-4 pb-2 flex flex-col items-center justify-center text-center space-y-4">
+                    <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <CheckCircle2 className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg">Thank You!</h3>
+                      <p className="text-sm text-muted-foreground">Your contribution helps make this project a reality.</p>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      className="w-full mt-2"
+                      onClick={() => setDonationSuccess(false)}
+                    >
+                      Make Another Contribution
+                    </Button>
                   </div>
-                  
-                  <Button 
-                    className="w-full"
-                    onClick={handleDonate}
-                  >
-                    Donate Now
-                  </Button>
-                </div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -317,7 +364,7 @@ const CampaignDetail = () => {
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-medium">{reward.title}</h4>
-                          <p className="text-primary font-bold">${reward.amount}</p>
+                          <p className="text-primary font-bold flex items-center"><IndianRupee className="h-3.5 w-3.5" />{reward.amount}</p>
                         </div>
                         {activeReward === reward.id ? (
                           <ChevronUp className="h-5 w-5 text-muted-foreground" />
@@ -347,7 +394,7 @@ const CampaignDetail = () => {
                           <div className="flex justify-between text-sm">
                             <span className="flex items-center gap-1">
                               <CalendarDays className="h-3 w-3" />
-                              Est. Delivery: {new Date(reward.estimatedDelivery).toLocaleDateString()}
+                              Est. Delivery: {new Date(reward.estimatedDelivery).toLocaleDateString('en-IN')}
                             </span>
                             
                             {reward.limitedQuantity && (

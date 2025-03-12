@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,14 +30,14 @@ const Categories = () => {
   const CategoryCard = ({ category }: { category: CampaignCategory }) => {
     const getCategoryImage = (cat: CampaignCategory) => {
       const images: Record<CampaignCategory, string> = {
-        'technology': 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-        'creative': 'https://images.unsplash.com/photo-1561398309-61c6bd5e8365',
-        'community': 'https://images.unsplash.com/photo-1485846234645-a62644f84728',
-        'business': 'https://images.unsplash.com/photo-1511512578047-dfb367046420',
-        'health': 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4',
-        'education': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
-        'environment': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d',
-        'other': 'https://images.unsplash.com/photo-1483985988355-763728e1935b',
+        'technology': 'https://images.unsplash.com/photo-1531297484001-80022131f5a1',
+        'creative': 'https://images.unsplash.com/photo-1531403009284-440f080d1e12',
+        'community': 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca',
+        'business': 'https://images.unsplash.com/photo-1539788816080-8bdd722d8c22',
+        'health': 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2',
+        'education': 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f',
+        'environment': 'https://images.unsplash.com/photo-1623347581726-1c7ed97fc172',
+        'other': 'https://images.unsplash.com/photo-1545987796-200677ee1011',
       };
       return images[cat] || 'https://images.unsplash.com/photo-1531297484001-80022131f5a1';
     };
@@ -132,8 +133,8 @@ const Categories = () => {
                             />
                           </div>
                           <div className="flex justify-between text-sm">
-                            <span className="font-semibold">₹{campaign.currentAmount.toLocaleString()}</span>
-                            <span className="text-muted-foreground">{Math.round((campaign.currentAmount / campaign.fundingGoal) * 100)}% of ₹{campaign.fundingGoal.toLocaleString()}</span>
+                            <span className="font-semibold flex items-center gap-1"><IndianRupee className="h-3 w-3" />{campaign.currentAmount.toLocaleString()}</span>
+                            <span className="text-muted-foreground">{Math.round((campaign.currentAmount / campaign.fundingGoal) * 100)}% of <IndianRupee className="inline h-3 w-3" />{campaign.fundingGoal.toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between text-sm mt-2">
                             <span className="text-muted-foreground flex items-center gap-1">
