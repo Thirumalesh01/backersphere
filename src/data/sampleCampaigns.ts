@@ -1,819 +1,844 @@
 
-import { Campaign } from '@/types/campaign';
+import { Campaign, CampaignCategory, CampaignStatus, FundingType } from "../types/campaign";
 
 export const sampleCampaigns: Campaign[] = [
   {
-    id: 'campaign_001',
-    title: 'EcoSmart: Sustainable Smart Home Hub',
-    subtitle: 'The world\'s first carbon-negative smart home system',
-    slug: 'ecosmart-sustainable-smart-home-hub',
-    description: 'A revolutionary smart home system that reduces your carbon footprint while saving you money on utilities.',
-    story: `<p>EcoSmart is born from a simple idea: what if your home could be both smarter <em>and</em> more environmentally friendly?</p>
-      <p>Traditional smart home systems focus solely on convenience, often at the cost of increased energy consumption. EcoSmart is different. Our system actively works to reduce your home's environmental impact while providing all the convenience of modern smart home technology.</p>
-      <p>The EcoSmart hub connects to your home's electrical system, HVAC, and water supply to monitor and optimize usage. It learns your habits and preferences, automatically adjusting settings to reduce waste without sacrificing comfort.</p>
-      <p>For every EcoSmart system sold, we plant 10 trees through our partnership with global reforestation initiatives, making your smart home truly carbon-negative.</p>
-      <h3>Key Features:</h3>
-      <ul>
-        <li>AI-powered energy optimization</li>
-        <li>Real-time resource usage monitoring</li>
-        <li>Automated waste reduction</li>
-        <li>Compatible with existing smart devices</li>
-        <li>Intuitive mobile app control</li>
-      </ul>`,
-    creatorId: 'user_001',
-    creatorName: 'GreenTech Innovations',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=GreenTech',
-    category: 'technology',
-    status: 'active',
-    fundingType: 'fixed',
-    fundingGoal: 100000,
-    currentAmount: 78500,
-    backersCount: 942,
-    images: [
+    id: "1",
+    title: "EcoHarvest: Sustainable Urban Farming",
+    slug: "ecoharvest-sustainable-urban-farming",
+    category: CampaignCategory.ENVIRONMENT,
+    creatorId: "user1",
+    creatorName: "Alex Johnson",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "Transforming urban spaces into productive and sustainable food gardens.",
+    fullDescription: `
+      EcoHarvest is revolutionizing how cities interact with food production. Our system transforms unused urban spaces—rooftops, vacant lots, even vertical walls—into productive food gardens using innovative hydroponic and aquaponic systems.
+
+      ## The Problem
+      Urban areas face multiple challenges: food deserts, carbon emissions from long-distance food transport, and disconnection from natural food systems. Meanwhile, countless urban spaces sit unused.
+
+      ## Our Solution
+      EcoHarvest combines cutting-edge vertical farming technology with community engagement:
+      
+      - **Space-Efficient Designs**: Custom systems for various urban spaces
+      - **Water-Conserving Technology**: Up to 95% less water than conventional farming
+      - **Community Integration**: Training programs for local residents
+      - **Zero Carbon Footprint**: Solar-powered systems and ultra-local distribution
+
+      ## What We'll Deliver
+      With your support, we'll launch 3 pilot sites in underserved neighborhoods, each producing up to 2,000 pounds of fresh produce annually while training local residents in sustainable farming techniques.
+
+      ## Timeline
+      - Month 1-2: Site preparation and system installation
+      - Month 3-4: First plantings and community training programs
+      - Month 5-6: First harvests and distribution program launch
+      
+      Join us in transforming how cities feed themselves!
+    `,
+    goal: 75000,
+    amountRaised: 42650,
+    backers: 215,
+    fundingType: FundingType.FIXED,
+    startDate: "2023-07-15T00:00:00Z",
+    endDate: "2023-10-15T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
       {
-        id: 'img_001',
-        url: 'https://images.unsplash.com/photo-1558002038-1055909cb956',
-        alt: 'EcoSmart Hub Device',
-        isPrimary: true
+        id: "1-1",
+        date: "2023-08-01T10:00:00Z",
+        title: "First site selected!",
+        content: "We're excited to announce that we've secured our first rooftop location in the downtown area. Site preparations begin next week!"
       },
       {
-        id: 'img_002',
-        url: 'https://images.unsplash.com/photo-1581092921461-fd0339bd3b2a',
-        alt: 'EcoSmart App Interface'
-      },
-      {
-        id: 'img_003',
-        url: 'https://images.unsplash.com/photo-1586473219010-2ffc57b0d282',
-        alt: 'EcoSmart in living room'
+        id: "1-2",
+        date: "2023-08-15T14:30:00Z",
+        title: "Equipment ordered",
+        content: "Thanks to your generous contributions, we've placed orders for our first hydroponic systems. They should arrive within 2 weeks!"
       }
     ],
-    startDate: '2023-11-15T00:00:00Z',
-    endDate: '2023-12-30T00:00:00Z',
-    location: 'San Francisco, CA',
     rewards: [
       {
-        id: 'reward_001',
-        title: 'Early Bird EcoSmart',
-        description: 'Be among the first to receive the EcoSmart Hub at a special early bird price.',
-        amount: 199,
-        estimatedDelivery: 'March 2024',
-        limitedQuantity: 500,
-        claimedCount: 487,
-        includes: ['EcoSmart Hub', 'Power Cable', '1-year Premium Subscription']
+        id: "1-r1",
+        title: "Urban Gardener",
+        description: "Digital thank-you card and monthly newsletter with updates on our progress.",
+        amount: 10,
+        delivery: "Immediate",
+        items: ["Digital thank-you card", "Monthly newsletter subscription"]
       },
       {
-        id: 'reward_002',
-        title: 'EcoSmart Standard',
-        description: 'The complete EcoSmart system with all standard features.',
-        amount: 249,
-        estimatedDelivery: 'March 2024',
-        includes: ['EcoSmart Hub', 'Power Cable', '6-month Premium Subscription']
-      },
-      {
-        id: 'reward_003',
-        title: 'EcoSmart Family Pack',
-        description: 'Perfect for larger homes. Includes the main hub and two satellite sensors.',
-        amount: 399,
-        estimatedDelivery: 'April 2024',
-        includes: ['EcoSmart Hub', '2 Satellite Sensors', 'Power Cables', '1-year Premium Subscription']
-      }
-    ],
-    risks: 'As with any hardware product, we may face manufacturing delays or supply chain issues. We have built in extra time to our delivery estimates to account for potential delays. We are committed to complete transparency and will communicate any changes to our timeline immediately.',
-    createdAt: '2023-11-01T00:00:00Z',
-    updatedAt: '2023-11-10T00:00:00Z',
-    featured: true,
-    tags: ['smart home', 'sustainability', 'eco-friendly', 'technology', 'energy saving']
-  },
-  {
-    id: 'campaign_002',
-    title: 'NomadDesk: The Ultimate Portable Workstation',
-    subtitle: 'Work comfortably from anywhere with our lightweight, ergonomic desk solution',
-    slug: 'nomaddesk-portable-workstation',
-    description: 'A lightweight, collapsible desk that transforms any space into an ergonomic workstation in seconds.',
-    story: `<p>As digital nomads and remote workers ourselves, we know the struggle of finding comfortable places to work. Coffee shops with tiny tables, hotel rooms with no desk space, or makeshift setups that wreak havoc on your posture.</p>
-      <p>NomadDesk solves these problems with an innovative design that prioritizes both portability and ergonomics. It weighs just 2.8 pounds but can support up to 25 pounds of equipment. The patented folding mechanism allows it to collapse to the size of a laptop sleeve, easily fitting in any bag.</p>
-      <p>Despite its compact size, NomadDesk provides proper ergonomic positioning for your laptop, with adjustable height settings and an integrated mousepad surface. The aerospace-grade aluminum construction ensures durability while keeping weight to an absolute minimum.</p>
-      <h3>Perfect For:</h3>
-      <ul>
-        <li>Remote workers and digital nomads</li>
-        <li>Business travelers</li>
-        <li>Students with small living spaces</li>
-        <li>Anyone who needs flexibility in their workspace</li>
-      </ul>`,
-    creatorId: 'user_002',
-    creatorName: 'Nomad Gear Co.',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=NomadGear',
-    category: 'technology',
-    status: 'active',
-    fundingType: 'flexible',
-    fundingGoal: 50000,
-    currentAmount: 42300,
-    backersCount: 1105,
-    images: [
-      {
-        id: 'img_004',
-        url: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7',
-        alt: 'NomadDesk in use',
-        isPrimary: true
-      },
-      {
-        id: 'img_005',
-        url: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd',
-        alt: 'NomadDesk folded'
-      },
-      {
-        id: 'img_006',
-        url: 'https://images.unsplash.com/photo-1600494603989-9650cf6dad51',
-        alt: 'NomadDesk in coffee shop'
-      }
-    ],
-    startDate: '2023-10-20T00:00:00Z',
-    endDate: '2023-12-05T00:00:00Z',
-    location: 'Austin, TX',
-    rewards: [
-      {
-        id: 'reward_004',
-        title: 'Early Bird NomadDesk',
-        description: 'Get the NomadDesk at our special early bird price - 30% off future retail!',
-        amount: 79,
-        estimatedDelivery: 'February 2024',
-        limitedQuantity: 750,
-        claimedCount: 750,
-        includes: ['NomadDesk', 'Carrying Sleeve']
-      },
-      {
-        id: 'reward_005',
-        title: 'NomadDesk Standard',
-        description: 'The NomadDesk with standard carrying sleeve.',
-        amount: 99,
-        estimatedDelivery: 'February 2024',
-        includes: ['NomadDesk', 'Carrying Sleeve']
-      },
-      {
-        id: 'reward_006',
-        title: 'NomadDesk Pro Bundle',
-        description: 'The complete package for serious remote workers.',
-        amount: 149,
-        estimatedDelivery: 'February 2024',
-        includes: ['NomadDesk', 'Premium Carrying Case', 'USB-C Hub Attachment', 'Phone/Tablet Stand']
-      }
-    ],
-    risks: 'We have completed our design phase and have working prototypes. Our manufacturing partners are secured, but global supply chain issues could potentially cause delays. We've built in buffer time to our estimates and will provide regular updates throughout production.',
-    createdAt: '2023-10-10T00:00:00Z',
-    updatedAt: '2023-10-15T00:00:00Z',
-    featured: true,
-    tags: ['remote work', 'portable', 'travel', 'ergonomic', 'desk']
-  },
-  {
-    id: 'campaign_003',
-    title: 'Culinary Roots: A Cookbook of Indigenous Recipes',
-    subtitle: 'Preserving traditional cooking methods and ingredients from indigenous communities worldwide',
-    slug: 'culinary-roots-indigenous-cookbook',
-    description: 'A beautifully illustrated cookbook featuring authentic indigenous recipes and the stories behind them.',
-    story: `<p>Food tells the story of a people—their history, values, and relationship with the land. Indigenous culinary traditions represent some of the world's most sustainable and locally-adapted food systems, yet many of these recipes and techniques are at risk of being lost.</p>
-      <p>"Culinary Roots" is more than just a cookbook; it's a preservation project. We've spent three years traveling to indigenous communities across six continents, learning directly from elders and food keepers. Each recipe is presented with cultural context, personal stories, and stunning photography.</p>
-      <p>This hardcover, coffee-table quality book features:</p>
-      <ul>
-        <li>120+ authentic recipes from 30+ indigenous cultures</li>
-        <li>Sustainable harvesting and cooking techniques</li>
-        <li>Stories from elders and knowledge keepers</li>
-        <li>Over 200 full-color photographs</li>
-        <li>Information on traditional ingredients and their uses</li>
-      </ul>
-      <p>A portion of all proceeds will be donated to indigenous food sovereignty initiatives selected by the contributing communities.</p>`,
-    creatorId: 'user_003',
-    creatorName: 'Heritage Harvest Publishing',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=Heritage',
-    category: 'creative',
-    status: 'active',
-    fundingType: 'fixed',
-    fundingGoal: 35000,
-    currentAmount: 28750,
-    backersCount: 782,
-    images: [
-      {
-        id: 'img_007',
-        url: 'https://images.unsplash.com/photo-1544927653-98addc2b1c4f',
-        alt: 'Cookbook sample layout',
-        isPrimary: true
-      },
-      {
-        id: 'img_008',
-        url: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187',
-        alt: 'Traditional cooking methods'
-      },
-      {
-        id: 'img_009',
-        url: 'https://images.unsplash.com/photo-1604152135912-04a022e23696',
-        alt: 'Food photography sample'
-      }
-    ],
-    startDate: '2023-09-01T00:00:00Z',
-    endDate: '2023-10-31T00:00:00Z',
-    location: 'Santa Fe, NM',
-    rewards: [
-      {
-        id: 'reward_007',
-        title: 'Digital Cookbook',
-        description: 'Digital version of Culinary Roots in PDF format.',
-        amount: 25,
-        estimatedDelivery: 'December 2023',
-        includes: ['Digital PDF Cookbook', 'Bonus Digital Content']
-      },
-      {
-        id: 'reward_008',
-        title: 'Hardcover Cookbook',
-        description: 'The full-color, hardcover edition of Culinary Roots.',
-        amount: 55,
-        estimatedDelivery: 'January 2024',
-        includes: ['Hardcover Cookbook', 'Digital PDF Version']
-      },
-      {
-        id: 'reward_009',
-        title: 'Signed Collector\'s Edition',
-        description: 'Limited edition with special cover, signed by the authors.',
-        amount: 100,
-        estimatedDelivery: 'January 2024',
-        limitedQuantity: 250,
-        claimedCount: 187,
-        includes: ['Signed Collector\'s Edition Cookbook', 'Digital PDF Version', 'Set of 5 Recipe Cards']
-      }
-    ],
-    risks: 'The content for the cookbook is complete. The main risk involves potential delays in printing and shipping due to the high-quality production standards we've set. We have already conducted test prints and have secured agreements with our printing partner.',
-    createdAt: '2023-08-15T00:00:00Z',
-    updatedAt: '2023-08-28T00:00:00Z',
-    featured: false,
-    tags: ['cookbook', 'indigenous', 'food', 'culture', 'sustainability']
-  },
-  {
-    id: 'campaign_004',
-    title: 'Community Gardens Initiative',
-    subtitle: 'Transforming vacant lots into productive community gardens in urban neighborhoods',
-    slug: 'community-gardens-initiative',
-    description: 'A grassroots project to create five new community gardens in food-insecure urban neighborhoods.',
-    story: `<p>Access to fresh, healthy food should be a right, not a privilege. Yet many urban neighborhoods have become "food deserts," where residents lack easy access to affordable produce. The Community Gardens Initiative aims to address this problem directly by converting vacant lots into productive community gardens.</p>
-      <p>With your support, we'll be able to develop five new community gardens in neighborhoods that need them most. Each garden will provide:</p>
-      <ul>
-        <li>Space for up to 40 family garden plots</li>
-        <li>A children's garden area for educational programs</li>
-        <li>A communal orchard with fruit trees</li>
-        <li>Rainwater collection system for sustainable irrigation</li>
-        <li>Composting facilities to reduce waste and create soil</li>
-      </ul>
-      <p>Beyond just growing food, these gardens will serve as community hubs, offering workshops on gardening, cooking, nutrition, and food preservation. We've already secured permission to use five vacant lots, and have partnerships with local schools and community organizations to ensure these spaces will be well-used and maintained.</p>
-      <p>Our team has successfully developed three community gardens in the past five years, and we're ready to scale our impact with your help!</p>`,
-    creatorId: 'user_004',
-    creatorName: 'Urban Harvest Collective',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=UrbanHarvest',
-    category: 'community',
-    status: 'active',
-    fundingType: 'flexible',
-    fundingGoal: 75000,
-    currentAmount: 52800,
-    backersCount: 621,
-    images: [
-      {
-        id: 'img_010',
-        url: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8',
-        alt: 'Community garden concept',
-        isPrimary: true
-      },
-      {
-        id: 'img_011',
-        url: 'https://images.unsplash.com/photo-1445052520430-32c8ebc92fe3',
-        alt: 'Urban farming'
-      },
-      {
-        id: 'img_012',
-        url: 'https://images.unsplash.com/photo-1582324113434-6930e778d81f',
-        alt: 'Children learning gardening'
-      }
-    ],
-    startDate: '2023-10-01T00:00:00Z',
-    endDate: '2023-12-15T00:00:00Z',
-    location: 'Detroit, MI',
-    rewards: [
-      {
-        id: 'reward_010',
-        title: 'Garden Supporter',
-        description: 'Support our mission and receive regular project updates.',
-        amount: 25,
-        estimatedDelivery: 'Immediate',
-        includes: ['Project Updates', 'Name on Virtual Donor Wall']
-      },
-      {
-        id: 'reward_011',
-        title: 'Plot Sponsor',
-        description: 'Sponsor a family garden plot for a food-insecure household.',
-        amount: 100,
-        estimatedDelivery: 'April 2024',
-        includes: ['Project Updates', 'Name on Physical Donor Plaque', 'Thank You Letter from Family']
-      },
-      {
-        id: 'reward_012',
-        title: 'Garden Benefactor',
-        description: 'Become a major supporter of a community garden.',
-        amount: 1000,
-        estimatedDelivery: 'April 2024',
-        includes: ['Project Updates', 'Named Garden Feature', 'Invitation to Opening Celebration', 'Harvest Basket of Produce (Local Only)']
-      }
-    ],
-    risks: 'Weather conditions may affect our construction timeline. We've planned to begin development in early spring, which allows flexibility if we experience delays. We have all necessary permits and have completed soil testing at each location.',
-    createdAt: '2023-09-15T00:00:00Z',
-    updatedAt: '2023-09-20T00:00:00Z',
-    featured: true,
-    tags: ['community', 'food security', 'urban farming', 'sustainability', 'education']
-  },
-  {
-    id: 'campaign_005',
-    title: 'Melody: AI Music Composition Assistant',
-    subtitle: 'Collaborative AI that helps musicians overcome creative blocks and explore new ideas',
-    slug: 'melody-ai-music-composition-assistant',
-    description: 'An innovative AI tool that collaborates with musicians to inspire creativity and develop musical ideas.',
-    story: `<p>Every musician knows the frustration of creative blocks—those moments when you have a musical idea but can't quite develop it, or when you're stuck in patterns and need fresh inspiration. Melody was designed by musicians, for musicians, to help overcome these challenges.</p>
-      <p>Unlike other AI music tools that generate complete compositions (often with mixed results), Melody works collaboratively with you. It analyzes your musical input—whether that's a simple melody, chord progression, or rhythm pattern—and suggests complementary elements that maintain your unique style while introducing new possibilities.</p>
-      <p>Melody features:</p>
-      <ul>
-        <li>Real-time suggestion system that responds to your playing</li>
-        <li>Style analysis that learns your preferences over time</li>
-        <li>Genre-specific modules trained on diverse musical traditions</li>
-        <li>MIDI and audio input compatibility</li>
-        <li>DAW plugin support for seamless workflow integration</li>
-        <li>Collaborative mode that allows you to selectively accept or modify AI suggestions</li>
-      </ul>
-      <p>We've spent two years developing Melody, working with professional musicians across genres to ensure it enhances creativity rather than replacing it. We believe in augmented creativity—technology that amplifies human expression rather than substituting for it.</p>`,
-    creatorId: 'user_005',
-    creatorName: 'Harmonic Labs',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=HarmonicLabs',
-    category: 'technology',
-    status: 'active',
-    fundingType: 'fixed',
-    fundingGoal: 120000,
-    currentAmount: 98600,
-    backersCount: 1427,
-    images: [
-      {
-        id: 'img_013',
-        url: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04',
-        alt: 'Melody interface',
-        isPrimary: true
-      },
-      {
-        id: 'img_014',
-        url: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81',
-        alt: 'Musician using Melody'
-      },
-      {
-        id: 'img_015',
-        url: 'https://images.unsplash.com/photo-1570355661861-16d7b6d3cc4b',
-        alt: 'Music production setup'
-      }
-    ],
-    startDate: '2023-09-15T00:00:00Z',
-    endDate: '2023-11-30T00:00:00Z',
-    location: 'Nashville, TN',
-    rewards: [
-      {
-        id: 'reward_013',
-        title: 'Early Access - Basic',
-        description: 'One-year subscription to Melody Basic with early access.',
-        amount: 89,
-        estimatedDelivery: 'February 2024',
-        includes: ['Melody Basic (1-year license)', 'Early Beta Access', 'Basic Support']
-      },
-      {
-        id: 'reward_014',
-        title: 'Early Access - Pro',
-        description: 'One-year subscription to Melody Pro with priority access.',
-        amount: 149,
-        estimatedDelivery: 'January 2024',
-        includes: ['Melody Pro (1-year license)', 'Priority Beta Access', 'Premium Support', 'Exclusive Sound Packs']
-      },
-      {
-        id: 'reward_015',
-        title: 'Lifetime License',
-        description: 'Never pay for Melody again with this special backer-exclusive offer.',
-        amount: 499,
-        estimatedDelivery: 'January 2024',
-        limitedQuantity: 200,
-        claimedCount: 143,
-        includes: ['Melody Pro (Lifetime License)', 'Priority Beta Access', 'Premium Support', 'All Future Sound Packs', 'Credited as Founding Member']
-      }
-    ],
-    risks: 'Software development timelines can be unpredictable, especially with complex AI systems. We have a working prototype and have completed most of the core functionality, but fine-tuning the AI for optimal performance may take additional time. We're committed to quality and won't release until the product meets our high standards.',
-    createdAt: '2023-09-01T00:00:00Z',
-    updatedAt: '2023-09-10T00:00:00Z',
-    featured: true,
-    tags: ['music', 'AI', 'creative tools', 'composition', 'software']
-  },
-  {
-    id: 'campaign_006',
-    title: 'Ocean Cleanup Drone Fleet',
-    subtitle: 'Autonomous solar-powered drones that collect plastic waste from coastal waters',
-    slug: 'ocean-cleanup-drone-fleet',
-    description: 'A fleet of autonomous drones designed to collect plastic waste from coastal waters before it reaches the open ocean.',
-    story: `<p>Plastic pollution in our oceans has reached crisis levels, with millions of tons entering marine environments every year. While large-scale cleanup efforts focus on ocean gyres and garbage patches, we believe in addressing the problem closer to the source—coastal waters where much of the plastic first enters the ocean.</p>
-      <p>Our team of marine engineers and robotics specialists has developed an autonomous drone specifically designed to collect floating plastic waste in harbors, river mouths, and coastal areas. These solar-powered drones can operate continuously during daylight hours, using computer vision to identify and collect plastic items while avoiding wildlife.</p>
-      <p>Key features of our Ocean Cleanup Drones:</p>
-      <ul>
-        <li>Solar-powered with battery backup for consistent operation</li>
-        <li>Advanced AI vision system to distinguish plastic from marine life</li>
-        <li>Collection capacity of up to 20kg of waste before returning to base</li>
-        <li>Automated sorting mechanism that separates different types of plastic</li>
-        <li>Real-time data collection on pollution hotspots</li>
-        <li>Weather-resistant design for operation in various conditions</li>
-      </ul>
-      <p>With your support, we'll build and deploy an initial fleet of 10 drones in high-impact coastal areas. Each drone can collect approximately 1.5 metric tons of plastic annually, preventing it from breaking down into microplastics and harming marine ecosystems.</p>`,
-    creatorId: 'user_006',
-    creatorName: 'Marine Robotics Initiative',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=MarineRobotics',
-    category: 'environment',
-    status: 'active',
-    fundingType: 'flexible',
-    fundingGoal: 200000,
-    currentAmount: 167500,
-    backersCount: 2134,
-    images: [
-      {
-        id: 'img_016',
-        url: 'https://images.unsplash.com/photo-1621451537084-482c73073a0f',
-        alt: 'Ocean drone prototype',
-        isPrimary: true
-      },
-      {
-        id: 'img_017',
-        url: 'https://images.unsplash.com/photo-1618477461853-cf6ed80faba5',
-        alt: 'Plastic pollution in coastal waters'
-      },
-      {
-        id: 'img_018',
-        url: 'https://images.unsplash.com/photo-1621955964441-c173e01c135b',
-        alt: 'Drone collection mechanism'
-      }
-    ],
-    startDate: '2023-08-01T00:00:00Z',
-    endDate: '2023-10-31T00:00:00Z',
-    location: 'Seattle, WA',
-    rewards: [
-      {
-        id: 'reward_016',
-        title: 'Cleanup Supporter',
-        description: 'Support our mission and receive project updates and recognition.',
-        amount: 30,
-        estimatedDelivery: 'Immediate',
-        includes: ['Project Updates', 'Name on Supporters Website', 'Digital Certificate']
-      },
-      {
-        id: 'reward_017',
-        title: 'Drone Sponsor',
-        description: 'Sponsor a specific drone and track its impact.',
-        amount: 500,
-        estimatedDelivery: 'March 2024',
-        includes: ['Named Drone with Tracking', 'Quarterly Impact Reports', 'Sponsor Certificate', 'Recycled Plastic Bracelet']
-      },
-      {
-        id: 'reward_018',
-        title: 'Deployment Partner',
-        description: 'Fund a complete drone deployment in a location of your choice (subject to feasibility).',
-        amount: 5000,
-        estimatedDelivery: 'June 2024',
-        includes: ['Location Selection Input', 'Named Drone Fleet', 'VIP Launch Invitation', 'Detailed Impact Reporting', 'Recognition in Media']
-      }
-    ],
-    risks: 'Maritime robotics presents challenges including harsh environmental conditions, regulatory approvals for autonomous vessels, and potential technical issues. We have completed successful prototypes and have team members with extensive experience in marine engineering. We've also initiated discussions with regulatory bodies in our target deployment regions.',
-    createdAt: '2023-07-15T00:00:00Z',
-    updatedAt: '2023-07-30T00:00:00Z',
-    featured: false,
-    tags: ['environment', 'ocean', 'plastic pollution', 'robotics', 'sustainability']
-  },
-  {
-    id: 'campaign_007',
-    title: 'MindfulMoments: Mental Health App',
-    subtitle: 'Personalized mental wellness tools based on cognitive behavioral therapy techniques',
-    slug: 'mindfulmoments-mental-health-app',
-    description: 'An evidence-based mobile app that delivers personalized mental wellness tools and exercises based on cognitive behavioral therapy.',
-    story: `<p>Mental health support should be accessible to everyone, not just those who can afford or access traditional therapy. MindfulMoments brings evidence-based techniques to your smartphone, providing personalized support for managing stress, anxiety, depression, and building resilience.</p>
-      <p>Developed in collaboration with clinical psychologists and based on proven cognitive behavioral therapy (CBT) techniques, MindfulMoments offers:</p>
-      <ul>
-        <li>Personalized daily exercises based on your needs and goals</li>
-        <li>Mood tracking with pattern recognition</li>
-        <li>Guided meditation and mindfulness practices</li>
-        <li>CBT thought journaling with cognitive distortion recognition</li>
-        <li>Sleep improvement program</li>
-        <li>Crisis resources and support network connections</li>
-      </ul>
-      <p>What makes MindfulMoments different is our adaptive algorithm that learns what works for you personally. As you use the app, it fine-tunes recommendations to match your preferences, challenges, and progress patterns.</p>
-      <p>We're committed to privacy and ethical design. MindfulMoments doesn't sell user data, uses encryption for all personal information, and is designed to minimize screen time while maximizing benefit. Our goal is to support your mental health, not create another digital dependency.</p>`,
-    creatorId: 'user_007',
-    creatorName: 'Wellness Innovations Team',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=WellnessTeam',
-    category: 'health',
-    status: 'active',
-    fundingType: 'fixed',
-    fundingGoal: 85000,
-    currentAmount: 63750,
-    backersCount: 1872,
-    images: [
-      {
-        id: 'img_019',
-        url: 'https://images.unsplash.com/photo-1605565348518-bef3e7d6fed8',
-        alt: 'MindfulMoments app interface',
-        isPrimary: true
-      },
-      {
-        id: 'img_020',
-        url: 'https://images.unsplash.com/photo-1546279130-f8d483d32d19',
-        alt: 'Person using meditation feature'
-      },
-      {
-        id: 'img_021',
-        url: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462',
-        alt: 'Thought journaling feature'
-      }
-    ],
-    startDate: '2023-09-01T00:00:00Z',
-    endDate: '2023-10-31T00:00:00Z',
-    location: 'Boston, MA',
-    rewards: [
-      {
-        id: 'reward_019',
-        title: 'Early Access Supporter',
-        description: 'Support mental health innovation and get early app access.',
-        amount: 15,
-        estimatedDelivery: 'January 2024',
-        includes: ['Early App Access', '3-Month Premium Subscription']
-      },
-      {
-        id: 'reward_020',
-        title: 'Premium Supporter',
-        description: 'Full premium access to all features at a special backer price.',
+        id: "1-r2",
+        title: "Harvest Supporter",
+        description: "Get a monthly basket of fresh produce from our first harvest for 3 months, plus the Urban Gardener rewards.",
         amount: 50,
-        estimatedDelivery: 'January 2024',
-        includes: ['Early App Access', '1-Year Premium Subscription', 'Supporter Badge']
+        delivery: "Starting Month 5",
+        items: ["3 monthly produce baskets", "Digital thank-you card", "Monthly newsletter subscription"]
       },
       {
-        id: 'reward_021',
-        title: 'Gift of Wellness',
-        description: 'Provide premium access to someone who can\'t afford it, and get access yourself.',
-        amount: 75,
-        estimatedDelivery: 'January 2024',
-        includes: ['Early App Access', '1-Year Premium Subscription', 'Gift Subscription for Someone in Need', 'Philanthropy Badge']
-      }
-    ],
-    risks: 'App development timelines can be unpredictable. While we have a working prototype, final development and testing may take longer than anticipated. We are committed to thorough testing, particularly given the sensitive nature of mental health applications. We may delay launch if needed to ensure the app meets our quality and safety standards.',
-    createdAt: '2023-08-15T00:00:00Z',
-    updatedAt: '2023-08-20T00:00:00Z',
-    featured: false,
-    tags: ['mental health', 'wellness', 'app', 'CBT', 'mindfulness']
-  },
-  {
-    id: 'campaign_008',
-    title: 'Sustainable Fashion Workshop Series',
-    subtitle: 'Training program teaching textile upcycling and sustainable clothing design techniques',
-    slug: 'sustainable-fashion-workshop-series',
-    description: 'A series of workshops teaching sustainable fashion design, textile upcycling, and ethical production techniques.',
-    story: `<p>Fast fashion has created an environmental crisis, with millions of tons of textile waste ending up in landfills each year. But there's a growing movement of designers and consumers committed to a more sustainable approach—and we want to accelerate this shift by sharing knowledge and skills.</p>
-      <p>Our Sustainable Fashion Workshop Series will provide comprehensive training in:</p>
-      <ul>
-        <li>Textile upcycling techniques to transform waste into new garments</li>
-        <li>Natural dyeing using plant-based materials</li>
-        <li>Pattern design for longevity and versatility</li>
-        <li>Repair and mending techniques to extend garment life</li>
-        <li>Small-batch production planning for independent designers</li>
-        <li>Ethical sourcing and supply chain development</li>
-      </ul>
-      <p>The series will include both in-person workshops in five cities and online courses accessible worldwide. All workshop materials will be sustainably sourced, primarily utilizing reclaimed textiles and natural materials.</p>
-      <p>The curriculum has been developed by a team of experienced sustainable fashion designers, textile artists, and environmental educators. Our goal is to build a community of practice that continues beyond the workshops through an online platform for resource sharing and collaboration.</p>`,
-    creatorId: 'user_008',
-    creatorName: 'Sustainable Style Collective',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=SustainableStyle',
-    category: 'education',
-    status: 'active',
-    fundingType: 'flexible',
-    fundingGoal: 40000,
-    currentAmount: 32400,
-    backersCount: 538,
-    images: [
-      {
-        id: 'img_022',
-        url: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f',
-        alt: 'Sustainable fashion workshop',
-        isPrimary: true
-      },
-      {
-        id: 'img_023',
-        url: 'https://images.unsplash.com/photo-1594761051656-637622308abf',
-        alt: 'Natural dyeing process'
-      },
-      {
-        id: 'img_024',
-        url: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2',
-        alt: 'Upcycled garment example'
-      }
-    ],
-    startDate: '2023-10-01T00:00:00Z',
-    endDate: '2023-11-15T00:00:00Z',
-    location: 'Portland, OR',
-    rewards: [
-      {
-        id: 'reward_022',
-        title: 'Online Course Access',
-        description: 'Full access to all online sustainable fashion courses.',
-        amount: 65,
-        estimatedDelivery: 'February 2024',
-        includes: ['Complete Online Curriculum', 'Digital Patterns and Guides', 'Community Forum Access']
-      },
-      {
-        id: 'reward_023',
-        title: 'Workshop Series Pass',
-        description: 'Attend all in-person workshops in your chosen city.',
+        id: "1-r3",
+        title: "Founding Farmer",
+        description: "Personalized plaque at one of our sites, private tour when installations are complete, and all Harvest Supporter rewards.",
         amount: 250,
-        estimatedDelivery: 'March-May 2024',
-        includes: ['In-Person Workshop Series (1 City)', 'Materials Kit', 'Online Course Access', 'Community Forum Access']
-      },
-      {
-        id: 'reward_024',
-        title: 'Designer Starter Package',
-        description: 'Comprehensive package for emerging sustainable designers.',
-        amount: 500,
-        estimatedDelivery: 'March-May 2024',
-        includes: ['In-Person Workshop Series (1 City)', 'Premium Materials Kit', 'One-on-One Mentoring Session', 'Sustainable Supplier Directory', 'Business Planning Resources']
+        delivery: "Plaque installed Month 3, Tour in Month 4",
+        items: ["Personalized plaque", "Private tour", "3 monthly produce baskets", "Digital thank-you card", "Monthly newsletter subscription"]
       }
-    ],
-    risks: 'Workshop scheduling depends on securing appropriate venues in each city, which may cause timeline shifts. The online curriculum is already well-developed, so this component has minimal risk of delay. If in-person workshops face significant delays in certain cities, we'll offer expanded online options and future workshop credits.',
-    createdAt: '2023-09-15T00:00:00Z',
-    updatedAt: '2023-09-20T00:00:00Z',
-    featured: false,
-    tags: ['fashion', 'sustainability', 'education', 'textiles', 'upcycling']
+    ]
   },
   {
-    id: 'campaign_009',
-    title: 'SolarBag: Emergency Power Station',
-    subtitle: 'Lightweight, high-capacity emergency power solution with integrated solar charging',
-    slug: 'solarbag-emergency-power-station',
-    description: 'A portable, solar-rechargeable power station built into a backpack, designed for emergency situations and outdoor adventures.',
-    story: `<p>Whether facing a natural disaster or simply going off-grid, reliable access to power can be essential. SolarBag combines advanced battery technology and flexible solar panels into a practical backpack design, creating the most portable high-capacity power solution available.</p>
-      <p>Unlike traditional power banks or bulky solar generators, SolarBag integrates seamlessly into a daily carry item. The flexible solar panels cover the exterior of the backpack, harvesting energy whenever you're outdoors. The high-efficiency battery system provides multiple output options to power everything from phones and laptops to small medical devices.</p>
-      <p>Key features include:</p>
-      <ul>
-        <li>1000Wh battery capacity with pure sine wave AC inverter (110V/220V compatible)</li>
-        <li>60W solar charging capability with positioning indicators for optimal alignment</li>
-        <li>Multiple output ports: USB-C PD (100W), USB-A, 12V DC, and AC outlet</li>
-        <li>Pass-through charging allows use while recharging</li>
-        <li>Water-resistant construction with reinforced stitching</li>
-        <li>Comfortable carrying system with weight distribution technology</li>
-        <li>Expandable capacity with optional additional battery modules</li>
-      </ul>
-      <p>SolarBag was designed based on feedback from emergency responders, disaster relief experts, and outdoor enthusiasts. It's built to provide critical power when and where you need it most.</p>`,
-    creatorId: 'user_009',
-    creatorName: 'EmergeTech Solutions',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=EmergeTech',
-    category: 'technology',
-    status: 'active',
-    fundingType: 'fixed',
-    fundingGoal: 150000,
-    currentAmount: 127500,
-    backersCount: 853,
-    images: [
+    id: "2",
+    title: "RainSaver: Smart Water Conservation System",
+    slug: "rainsaver-smart-water-conservation",
+    category: CampaignCategory.TECHNOLOGY,
+    creatorId: "user2",
+    creatorName: "Priya Sharma",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "AI-powered rainwater harvesting system that reduces water bills by up to 60%.",
+    fullDescription: `
+      RainSaver is the world's first smart rainwater harvesting system that combines weather forecasting AI with efficient storage and filtration technology.
+
+      ## The Problem
+      Clean water is increasingly precious, and traditional rainwater systems are inefficient, collecting water regardless of forecasts and offering limited filtration.
+
+      ## Our Solution
+      RainSaver uses:
+      
+      - **Predictive Weather AI**: Automatically prepares for collection before rain events
+      - **Multi-Stage Filtration**: Makes rainwater safe for gardens, laundry, and even drinking
+      - **Smart Home Integration**: Controls via app and works with existing smart home systems
+      - **Modular Design**: Easily scales from apartment balconies to large homes
+
+      ## What We'll Deliver
+      A complete RainSaver system including the smart controller, base storage unit, filtration system, and smartphone app with 2-year subscription to the AI forecasting service.
+
+      ## Timeline
+      - Month 1-3: Complete final product testing and certification
+      - Month 4-5: Begin manufacturing
+      - Month 6-7: Fulfillment to backers
+      
+      Help us make water conservation effortless and effective!
+    `,
+    goal: 120000,
+    amountRaised: 89750,
+    backers: 412,
+    fundingType: FundingType.FLEXIBLE,
+    startDate: "2023-06-01T00:00:00Z",
+    endDate: "2023-09-01T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
       {
-        id: 'img_025',
-        url: 'https://images.unsplash.com/photo-1617135530035-1734c9843f88',
-        alt: 'SolarBag prototype',
-        isPrimary: true
+        id: "2-1",
+        date: "2023-06-10T09:15:00Z",
+        title: "Certification process underway",
+        content: "We've submitted RainSaver for water quality certification - an important milestone!"
       },
       {
-        id: 'img_026',
-        url: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638',
-        alt: 'SolarBag in use outdoors'
+        id: "2-2",
+        date: "2023-07-05T16:45:00Z",
+        title: "App development milestone",
+        content: "Our app development is ahead of schedule! We've completed the water quality monitoring features and are now working on the forecast integration."
       },
       {
-        id: 'img_027',
-        url: 'https://images.unsplash.com/photo-1581881067864-6a33fce7b0dd',
-        alt: 'SolarBag charging devices'
+        id: "2-3",
+        date: "2023-08-01T11:30:00Z",
+        title: "Manufacturing partners confirmed",
+        content: "We've finalized agreements with our manufacturing partners. They're ready to begin production as soon as we complete our funding round!"
       }
     ],
-    startDate: '2023-08-15T00:00:00Z',
-    endDate: '2023-10-15T00:00:00Z',
-    location: 'Boulder, CO',
     rewards: [
       {
-        id: 'reward_025',
-        title: 'Early Bird SolarBag Essential',
-        description: 'The standard SolarBag at a special early bird price.',
-        amount: 299,
-        estimatedDelivery: 'April 2024',
-        limitedQuantity: 300,
-        claimedCount: 300,
-        includes: ['SolarBag Essential (750Wh)', 'Charging Cables', 'User Manual']
+        id: "2-r1",
+        title: "Early Bird Basic",
+        description: "RainSaver Basic System with smart controller and 50-gallon storage at 20% off future retail price.",
+        amount: 199,
+        delivery: "Month 7",
+        items: ["RainSaver Controller", "50-gallon storage tank", "Basic filtration system", "App with 1-year AI subscription"]
       },
       {
-        id: 'reward_026',
-        title: 'SolarBag Essential',
-        description: 'The standard SolarBag power station backpack.',
+        id: "2-r2",
+        title: "Home System",
+        description: "Complete RainSaver system with 100-gallon capacity, premium filtration, and extended 3-year AI subscription.",
         amount: 349,
-        estimatedDelivery: 'April 2024',
-        includes: ['SolarBag Essential (750Wh)', 'Charging Cables', 'User Manual']
+        delivery: "Month 7",
+        items: ["RainSaver Controller", "100-gallon storage tank", "Premium multi-stage filtration", "App with 3-year AI subscription"]
       },
       {
-        id: 'reward_027',
-        title: 'SolarBag Pro',
-        description: 'Enhanced capacity and features for demanding situations.',
-        amount: 499,
-        estimatedDelivery: 'April 2024',
-        includes: ['SolarBag Pro (1000Wh)', 'Expansion Battery (250Wh)', 'All Charging Cables', 'Weatherproof Cover', 'Emergency Light Attachment']
+        id: "2-r3",
+        title: "Ultimate Conservation Package",
+        description: "Expanded 200-gallon system with our highest-grade filtration (potable water rated), permanent AI subscription, and professional installation.",
+        amount: 799,
+        delivery: "Month 8",
+        items: ["RainSaver Pro Controller", "200-gallon modular system", "Potable-rated filtration system", "Lifetime AI subscription", "Professional installation"]
       }
-    ],
-    risks: 'As with any hardware project involving batteries and electronics, we may face supply chain challenges or certification delays. We have completed working prototypes and secured relationships with manufacturing partners. Our team has prior experience bringing similar products to market, which helps us anticipate and mitigate potential issues.',
-    createdAt: '2023-08-01T00:00:00Z',
-    updatedAt: '2023-08-10T00:00:00Z',
-    featured: true,
-    tags: ['solar', 'power', 'emergency', 'outdoor', 'sustainable']
+    ]
   },
   {
-    id: 'campaign_010',
-    title: 'Historical Voices: Oral History Archive',
-    subtitle: 'Preserving first-person accounts of historical events through immersive digital archives',
-    slug: 'historical-voices-oral-history-archive',
-    description: 'A digital preservation project capturing oral histories from elders who witnessed significant historical events of the 20th century.',
-    story: `<p>Every day, we lose irreplaceable firsthand accounts of history as elderly witnesses to major 20th century events pass away. The Historical Voices project aims to preserve these perspectives through high-quality video interviews, creating an immersive digital archive accessible to researchers, educators, and the public.</p>
-      <p>Our team of oral historians, videographers, and digital archivists has already conducted pilot interviews with:</p>
-      <ul>
-        <li>Civil rights movement participants</li>
-        <li>World War II veterans and civilian survivors</li>
-        <li>Former refugees from various global conflicts</li>
-        <li>Witnesses to major technological and social transformations</li>
-        <li>Indigenous elders preserving traditional knowledge</li>
-      </ul>
-      <p>With your support, we'll expand this work to capture hundreds more stories over the next year, focusing on underrepresented perspectives and rapidly aging populations. Each interview is professionally filmed, transcribed, indexed, and contextualized with historical resources.</p>
-      <p>The resulting archive will be made available through:</p>
-      <ul>
-        <li>A free public website with search capabilities</li>
-        <li>Educational curriculum resources for teachers</li>
-        <li>Interactive museum installations</li>
-        <li>A research database for scholars</li>
-        <li>Documentary film compilations on specific historical themes</li>
-      </ul>
-      <p>By supporting this project, you're helping ensure that future generations can learn from the direct experiences of those who lived through history's pivotal moments.</p>`,
-    creatorId: 'user_010',
-    creatorName: 'Heritage Preservation Collective',
-    creatorAvatar: 'https://api.dicebear.com/7.x/micah/svg?seed=HeritageCollective',
-    category: 'education',
-    status: 'active',
-    fundingType: 'flexible',
-    fundingGoal: 60000,
-    currentAmount: 47800,
-    backersCount: 712,
-    images: [
+    id: "3",
+    title: "MindfulMornings: Guided Wellness Alarm Clock",
+    slug: "mindfulmornings-wellness-alarm",
+    category: CampaignCategory.HEALTH,
+    creatorId: "user3",
+    creatorName: "David Chen",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "A gentle alarm clock that eases you into your day with guided meditation and personalized routines.",
+    fullDescription: `
+      MindfulMornings reimagines how you start your day, replacing jarring alarms with a science-backed wake-up experience.
+
+      ## The Problem
+      Traditional alarms shock you awake, triggering your stress response and potentially setting a negative tone for your entire day.
+
+      ## Our Solution
+      MindfulMornings combines:
+      
+      - **Natural Light Simulation**: Gradually brightens to trigger natural cortisol production
+      - **Personalized Audio**: Transitions from subtle sounds to guided morning meditations
+      - **Smart Sleep Detection**: Wakes you during light sleep phases for easier transitions
+      - **Routine Builder**: Guides you through a personalized morning wellness routine
+
+      ## What We'll Deliver
+      The MindfulMornings device with companion app, featuring pre-loaded guided meditations and routines from certified wellness experts.
+
+      ## Timeline
+      - Month 1-2: Finalize production design
+      - Month 3-4: Complete software development
+      - Month 5-6: Production and quality testing
+      - Month 7: Fulfillment to backers
+      
+      Start your days with intention and calm!
+    `,
+    goal: 65000,
+    amountRaised: 58700,
+    backers: 976,
+    fundingType: FundingType.FIXED,
+    startDate: "2023-08-01T00:00:00Z",
+    endDate: "2023-11-01T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
       {
-        id: 'img_028',
-        url: 'https://images.unsplash.com/photo-1533626904905-cc52fd99285e',
-        alt: 'Oral history interview session',
-        isPrimary: true
-      },
-      {
-        id: 'img_029',
-        url: 'https://images.unsplash.com/photo-1572204097183-e1ab140342ed',
-        alt: 'Digital archive interface'
-      },
-      {
-        id: 'img_030',
-        url: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2',
-        alt: 'Historical photograph collection'
+        id: "3-1",
+        date: "2023-08-12T08:30:00Z",
+        title: "Wellness partnerships announced",
+        content: "We're thrilled to announce partnerships with three renowned meditation experts who will be creating exclusive content for MindfulMornings users!"
       }
     ],
-    startDate: '2023-09-01T00:00:00Z',
-    endDate: '2023-11-01T00:00:00Z',
-    location: 'Washington, DC',
     rewards: [
       {
-        id: 'reward_028',
-        title: 'Archive Supporter',
-        description: 'Early access to the digital archive and project updates.',
-        amount: 25,
-        estimatedDelivery: 'January 2024',
-        includes: ['Early Archive Access', 'Monthly Project Updates', 'Name in Supporters List']
+        id: "3-r1",
+        title: "Early Bird Essentials",
+        description: "MindfulMornings device with 6-month premium subscription at 25% off future retail price.",
+        amount: 79,
+        delivery: "Month 7",
+        items: ["MindfulMornings device", "6-month premium subscription", "10 guided meditation tracks"]
       },
       {
-        id: 'reward_029',
-        title: 'Education Pack',
-        description: 'Complete curriculum resources for educators using historical interviews.',
-        amount: 75,
-        estimatedDelivery: 'February 2024',
-        includes: ['Early Archive Access', 'Curriculum Resource Pack', 'Classroom Activity Guide', 'Digital Primary Source Collection']
+        id: "3-r2",
+        title: "Wellness Package",
+        description: "MindfulMornings device with 1-year premium subscription and exclusive ambient soundscapes.",
+        amount: 119,
+        delivery: "Month 7",
+        items: ["MindfulMornings device", "1-year premium subscription", "20 guided meditation tracks", "Exclusive ambient soundscape collection"]
       },
       {
-        id: 'reward_030',
-        title: 'Interview Sponsor',
-        description: 'Sponsor a specific interview and be recognized in the archives.',
-        amount: 250,
-        estimatedDelivery: 'Ongoing',
-        includes: ['Early Archive Access', 'Sponsor Credit on Specific Interview', 'Digital Certificate', 'Behind-the-Scenes Updates on Your Sponsored Interview']
+        id: "3-r3",
+        title: "Complete Transformation",
+        description: "Two MindfulMornings devices, lifetime premium subscription, personal routine consultation with a wellness expert.",
+        amount: 299,
+        delivery: "Month 7-8",
+        items: ["2 MindfulMornings devices", "Lifetime premium subscription", "Complete meditation library", "45-minute personal routine consultation", "Priority support"]
+      }
+    ]
+  },
+  {
+    id: "4",
+    title: "GlobalPal: Real-time Translation Earbuds",
+    slug: "globalpal-translation-earbuds",
+    category: CampaignCategory.TECHNOLOGY,
+    creatorId: "user4",
+    creatorName: "Sophia Rodriguez",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "Break language barriers with AI earbuds that translate conversations in real-time.",
+    fullDescription: `
+      GlobalPal makes cross-language conversation as easy as talking to someone who speaks your language.
+
+      ## The Problem
+      Language barriers limit connections, complicate travel, and hinder global collaboration, while existing translation solutions are clunky and interrupt natural conversation flow.
+
+      ## Our Solution
+      GlobalPal delivers:
+      
+      - **Real-time Translation**: Less than 0.5 second delay for natural conversation
+      - **40+ Languages**: Covers 95% of globally spoken languages
+      - **Dialect Recognition**: Understands regional accents and expressions
+      - **Offline Capability**: Core languages work without internet connection
+      - **Natural Sound**: Full-spectrum audio makes translated voices sound natural
+
+      ## What We'll Deliver
+      GlobalPal earbuds in a charging case, companion app with language downloads, and 2-year subscription to language updates.
+
+      ## Timeline
+      - Month 1-3: Complete AI training for remaining languages
+      - Month 4-5: Production of first batch
+      - Month 6: Quality testing and refinement
+      - Month 7-8: Fulfillment to backers
+      
+      Join us in making global communication seamless!
+    `,
+    goal: 200000,
+    amountRaised: 176500,
+    backers: 1245,
+    fundingType: FundingType.FLEXIBLE,
+    startDate: "2023-05-15T00:00:00Z",
+    endDate: "2023-08-15T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
+      {
+        id: "4-1",
+        date: "2023-06-01T14:00:00Z",
+        title: "AI accuracy milestone reached",
+        content: "Our translation AI has reached 97% accuracy in our 15 most common languages - exceeding our target!"
+      },
+      {
+        id: "4-2",
+        date: "2023-07-10T09:45:00Z",
+        title: "Production samples received",
+        content: "We've received our first production samples and they've passed all initial quality tests. We're on track for our delivery timeline!"
       }
     ],
-    risks: 'Our primary challenge is the time-sensitive nature of capturing these stories, as many potential interviewees are elderly. We have an established process for identifying and prioritizing interviews. Technical aspects of the archive development are well-understood, as we've completed a pilot version. The main risk is in scaling up our interview capacity while maintaining quality.',
-    createdAt: '2023-08-15T00:00:00Z',
-    updatedAt: '2023-08-20T00:00:00Z',
-    featured: false,
-    tags: ['history', 'education', 'archive', 'preservation', 'storytelling']
+    rewards: [
+      {
+        id: "4-r1",
+        title: "Early Adopter",
+        description: "One GlobalPal earbud set with 10 core languages and 1-year subscription to language updates.",
+        amount: 179,
+        delivery: "Month 8",
+        items: ["GlobalPal earbuds", "Charging case", "App access", "10 core languages", "1-year language update subscription"]
+      },
+      {
+        id: "4-r2",
+        title: "Global Traveler",
+        description: "One GlobalPal earbud set with all 40+ languages and 2-year subscription to language updates and new features.",
+        amount: 249,
+        delivery: "Month 8",
+        items: ["GlobalPal earbuds", "Charging case", "App access", "40+ languages", "2-year comprehensive subscription"]
+      },
+      {
+        id: "4-r3",
+        title: "Business Communication Package",
+        description: "Two GlobalPal earbud sets with all languages, premium business terminology packs, and 3-year subscription.",
+        amount: 449,
+        delivery: "Month 8",
+        items: ["2 GlobalPal earbud sets", "2 Charging cases", "App access", "40+ languages", "Business terminology packs", "3-year comprehensive subscription"]
+      }
+    ]
+  },
+  {
+    id: "5",
+    title: "LegacyNotes: Preserving Family Stories",
+    slug: "legacynotes-family-stories",
+    category: CampaignCategory.COMMUNITY,
+    creatorId: "user5",
+    creatorName: "James Wilson",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "An AI-assisted service to record, preserve and share family histories across generations.",
+    fullDescription: `
+      LegacyNotes helps families capture their most precious asset - their stories and history - before they're lost forever.
+
+      ## The Problem
+      Family stories disappear with each passing generation. Elderly family members often take irreplaceable knowledge, stories, and wisdom with them.
+
+      ## Our Solution
+      LegacyNotes provides:
+      
+      - **Guided Interview System**: AI-powered question prompts that elicit meaningful stories
+      - **Multi-format Preservation**: Audio, video, and auto-transcribed text archives
+      - **Family Tree Integration**: Stories tagged to family members and events
+      - **Private Family Network**: Secure sharing within family groups
+      - **Archival-quality Storage**: Guaranteed 100-year digital preservation
+
+      ## What We'll Deliver
+      Access to the LegacyNotes platform, including interview tools, storage, and family sharing network. Premium tiers include physical memory books and professional interview facilitation.
+
+      ## Timeline
+      - Month 1-2: Complete platform development
+      - Month 3: Beta testing with select families
+      - Month 4: Platform launch to backers
+      
+      Don't let your family's stories disappear!
+    `,
+    goal: 50000,
+    amountRaised: 37500,
+    backers: 412,
+    fundingType: FundingType.FLEXIBLE,
+    startDate: "2023-07-01T00:00:00Z",
+    endDate: "2023-10-01T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
+      {
+        id: "5-1",
+        date: "2023-07-20T10:30:00Z",
+        title: "Interview prompt system completed",
+        content: "We've finalized our AI-assisted interview system with over 1,000 thoughtfully crafted prompts designed to elicit meaningful family stories!"
+      },
+      {
+        id: "5-2",
+        date: "2023-08-05T15:45:00Z",
+        title: "Beta testers needed",
+        content: "We're looking for 20 diverse families to beta test the platform. If you're interested, please fill out the form in your backer portal."
+      }
+    ],
+    rewards: [
+      {
+        id: "5-r1",
+        title: "Digital Preservation",
+        description: "One year of LegacyNotes access with 10 hours of story storage and basic family sharing.",
+        amount: 49,
+        delivery: "Month 4",
+        items: ["Platform access", "10 hours storage", "Basic family sharing", "Auto-transcription"]
+      },
+      {
+        id: "5-r2",
+        title: "Family Historian",
+        description: "Three years of LegacyNotes access with 50 hours of story storage, premium family sharing, and one printed memory book.",
+        amount: 129,
+        delivery: "Month 4-5",
+        items: ["Platform access", "50 hours storage", "Premium family sharing", "Advanced AI interview system", "One 50-page printed memory book"]
+      },
+      {
+        id: "5-r3",
+        title: "Generation Bridge",
+        description: "Lifetime LegacyNotes access, unlimited storage, remote professional interviewer session, and annual memory books.",
+        amount: 499,
+        delivery: "Month 4-5",
+        items: ["Lifetime platform access", "Unlimited storage", "Priority support", "3-hour professional remote interviewer session", "Annual printed memory books for 3 years"]
+      }
+    ]
+  },
+  {
+    id: "6",
+    title: "ArtiScan: 3D Art Digitization Tool",
+    slug: "artiscan-3d-digitization",
+    category: CampaignCategory.ARTS,
+    creatorId: "user6",
+    creatorName: "Maya Patel",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "Affordable 3D scanning system that lets artists digitize physical artwork with professional quality.",
+    fullDescription: `
+      ArtiScan bridges the physical and digital art worlds with accessible, high-quality 3D scanning technology.
+
+      ## The Problem
+      Artists creating physical work struggle to create high-quality digital versions for online portfolios, NFTs, or digital exhibitions without expensive equipment.
+
+      ## Our Solution
+      ArtiScan offers:
+      
+      - **Smartphone-Based Scanning**: Uses your phone's camera with our special lens attachment
+      - **Photogrammetry Platform**: Guided rotation stand ensures complete capture
+      - **Studio-Quality Lighting**: Built-in adjustable LED lighting eliminates shadows
+      - **Automatic Processing**: Cloud software creates detailed 3D models automatically
+      - **Creator-Friendly Usage Rights**: You own all scanned artwork files completely
+
+      ## What We'll Deliver
+      The ArtiScan hardware kit (platform, lighting, phone attachment) plus software subscription for model processing and portfolio management.
+
+      ## Timeline
+      - Month 1-2: Complete manufacturing setup
+      - Month 3-4: Software platform finalization
+      - Month 5: Production
+      - Month 6: Fulfillment to backers
+      
+      Help democratize art digitization technology!
+    `,
+    goal: 80000,
+    amountRaised: 62400,
+    backers: 831,
+    fundingType: FundingType.FIXED,
+    startDate: "2023-06-15T00:00:00Z",
+    endDate: "2023-09-15T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
+      {
+        id: "6-1",
+        date: "2023-07-01T12:00:00Z",
+        title: "Software beta version available",
+        content: "We've completed the beta version of our scanning software! Check your backer portal for early access information."
+      },
+      {
+        id: "6-2",
+        date: "2023-08-10T09:30:00Z",
+        title: "Production progress update",
+        content: "We've finalized our manufacturing arrangements and are on track for timely production. Here's a sneak peek at the final design!"
+      }
+    ],
+    rewards: [
+      {
+        id: "6-r1",
+        title: "Early Creator",
+        description: "ArtiScan hardware kit and 1-year software subscription with up to 25 high-quality scans per month.",
+        amount: 129,
+        delivery: "Month 6",
+        items: ["ArtiScan platform", "LED lighting ring", "Phone attachment", "1-year software subscription", "25 monthly scans"]
+      },
+      {
+        id: "6-r2",
+        title: "Professional Package",
+        description: "ArtiScan hardware kit with premium lighting, 2-year software subscription, and up to 100 scans per month.",
+        amount: 249,
+        delivery: "Month 6",
+        items: ["ArtiScan pro platform", "Adjustable LED lighting studio", "Phone attachment", "2-year software subscription", "100 monthly scans"]
+      },
+      {
+        id: "6-r3",
+        title: "Studio Solution",
+        description: "Two ArtiScan professional kits, lifetime software subscription, unlimited scans, and priority support.",
+        amount: 599,
+        delivery: "Month 6",
+        items: ["2 ArtiScan pro platforms", "2 Adjustable LED lighting studios", "2 Phone attachments", "Lifetime software subscription", "Unlimited scans", "Priority support"]
+      }
+    ]
+  },
+  {
+    id: "7",
+    title: "PlantPal: Smart Garden Companion",
+    slug: "plantpal-garden-companion",
+    category: CampaignCategory.ENVIRONMENT,
+    creatorId: "user7",
+    creatorName: "Olivia Kim",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "AI-powered device that monitors your plants and provides real-time care instructions.",
+    fullDescription: `
+      PlantPal is like having a botanist on call 24/7, ensuring your indoor and outdoor plants thrive year-round.
+
+      ## The Problem
+      Even experienced gardeners struggle to provide optimal care for diverse plant species with varying needs, and new gardeners often give up after plant failures.
+
+      ## Our Solution
+      PlantPal delivers:
+      
+      - **Plant Recognition**: Identifies 5,000+ species and their varieties
+      - **Environment Monitoring**: Tracks soil moisture, sunlight, temperature and humidity
+      - **Personalized Care**: Provides species-specific watering, fertilizing and care schedules
+      - **Problem Diagnosis**: Identifies diseases and pests with treatment recommendations
+      - **Growth Tracking**: Documents plant progress with time-lapse capabilities
+
+      ## What We'll Deliver
+      The PlantPal sensor stake with companion app, including plant identification, care instructions, and community features.
+
+      ## Timeline
+      - Month 1-2: Finalize hardware production
+      - Month 3: Complete software development
+      - Month 4-5: Production and quality testing
+      - Month 6: Fulfillment to backers
+      
+      Grow your green thumb with technology!
+    `,
+    goal: 90000,
+    amountRaised: 103500,
+    backers: 1750,
+    fundingType: FundingType.FLEXIBLE,
+    startDate: "2023-04-01T00:00:00Z",
+    endDate: "2023-07-01T00:00:00Z",
+    status: CampaignStatus.SUCCESSFUL,
+    updates: [
+      {
+        id: "7-1",
+        date: "2023-04-15T11:30:00Z",
+        title: "Fully funded in two weeks!",
+        content: "We're thrilled to announce that PlantPal has been fully funded in just two weeks! Thanks to our amazing backers, we're now working toward stretch goals."
+      },
+      {
+        id: "7-2",
+        date: "2023-05-10T10:00:00Z",
+        title: "Plant database expanded",
+        content: "We've expanded our plant database to include over 7,000 species - well beyond our initial goal!"
+      },
+      {
+        id: "7-3",
+        date: "2023-06-20T14:15:00Z",
+        title: "Production underway",
+        content: "Production has begun! The first batch of PlantPal sensors is coming to life, and we're right on schedule for our delivery timeline."
+      }
+    ],
+    rewards: [
+      {
+        id: "7-r1",
+        title: "Green Starter",
+        description: "One PlantPal sensor stake with standard monitoring capabilities and app access.",
+        amount: 59,
+        delivery: "Month 6",
+        items: ["PlantPal sensor stake", "App access", "Plant identification", "Basic care instructions"]
+      },
+      {
+        id: "7-r2",
+        title: "Garden Enthusiast",
+        description: "Two PlantPal sensor stakes with premium features including pest detection and advanced analytics.",
+        amount: 99,
+        delivery: "Month 6",
+        items: ["2 PlantPal sensor stakes", "App access", "Premium features", "Pest and disease detection", "Growth analytics"]
+      },
+      {
+        id: "7-r3",
+        title: "Master Gardener",
+        description: "Five PlantPal sensor stakes, early access to new features, and a 30-minute consultation with a professional botanist.",
+        amount: 199,
+        delivery: "Month 6",
+        items: ["5 PlantPal sensor stakes", "App access", "Premium features", "Beta feature access", "30-minute botanist consultation"]
+      }
+    ]
+  },
+  {
+    id: "8",
+    title: "Melodica: Adaptive Music Learning Platform",
+    slug: "melodica-music-learning",
+    category: CampaignCategory.EDUCATION,
+    creatorId: "user8",
+    creatorName: "Thomas Jackson",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "An AI-powered platform that adapts to your learning style to teach musical instruments effectively.",
+    fullDescription: `
+      Melodica transforms how people learn musical instruments by creating a customized learning journey for each student.
+
+      ## The Problem
+      Traditional music learning is either expensive (private lessons) or one-size-fits-all (apps and videos), leading to high dropout rates.
+
+      ## Our Solution
+      Melodica provides:
+      
+      - **Learning Style Assessment**: Identifies your optimal learning approach
+      - **Adaptive Curriculum**: Adjusts difficulty and style based on performance
+      - **Real-time Feedback**: Listens to your playing and offers specific corrections
+      - **Visual Learning Tools**: Shows finger positions, notes, and techniques in intuitive ways
+      - **Practice Motivation**: Gamified elements maintain engagement and consistent practice
+
+      ## What We'll Deliver
+      Access to the Melodica platform with instrument-specific learning paths for piano, guitar, violin, and more, plus the Melodica audio processor for accurate performance analysis.
+
+      ## Timeline
+      - Month 1-2: Platform development completion
+      - Month 3: Audio processor production
+      - Month 4: Beta testing with music educators
+      - Month 5: Full platform launch to backers
+      
+      Make your musical dreams a reality!
+    `,
+    goal: 70000,
+    amountRaised: 45600,
+    backers: 683,
+    fundingType: FundingType.FIXED,
+    startDate: "2023-08-15T00:00:00Z",
+    endDate: "2023-11-15T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
+      {
+        id: "8-1",
+        date: "2023-09-01T13:45:00Z",
+        title: "New instruments added",
+        content: "Due to popular demand, we've added saxophone and drums to our instrument lineup, bringing our total to eight supported instruments!"
+      }
+    ],
+    rewards: [
+      {
+        id: "8-r1",
+        title: "Solo Artist",
+        description: "One-year access to Melodica for a single instrument of your choice.",
+        amount: 79,
+        delivery: "Month 5",
+        items: ["Platform access", "Single instrument course", "Basic feedback tools", "Melodica audio processor"]
+      },
+      {
+        id: "8-r2",
+        title: "Multi-Instrumentalist",
+        description: "Two-year access to Melodica for up to three instruments of your choice.",
+        amount: 149,
+        delivery: "Month 5",
+        items: ["Platform access", "Three instrument courses", "Advanced feedback tools", "Melodica audio processor", "Performance analytics"]
+      },
+      {
+        id: "8-r3",
+        title: "Music Academy",
+        description: "Lifetime access to all instruments, priority support, and four 30-minute sessions with professional music educators.",
+        amount: 349,
+        delivery: "Month 5",
+        items: ["Lifetime platform access", "All instrument courses", "Premium feedback system", "Melodica audio processor", "Four educator sessions", "Priority support"]
+      }
+    ]
+  },
+  {
+    id: "9",
+    title: "NutriPrep: Automated Meal Planning",
+    slug: "nutriprep-meal-planning",
+    category: CampaignCategory.HEALTH,
+    creatorId: "user9",
+    creatorName: "Michael Foster",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "An AI system that creates personalized meal plans and automatically orders ingredients from local stores.",
+    fullDescription: `
+      NutriPrep eliminates the daily stress of deciding what to eat while ensuring your meals are healthy, delicious, and aligned with your goals.
+
+      ## The Problem
+      Meal planning is time-consuming, grocery shopping is inefficient, and maintaining dietary goals is difficult without considerable effort.
+
+      ## Our Solution
+      NutriPrep offers:
+      
+      - **Personalized Nutrition**: Creates meal plans based on your health goals, dietary restrictions, and preferences
+      - **Taste Learning**: Adapts recommendations based on your feedback
+      - **Automated Shopping**: Integrates with local grocery stores and delivery services
+      - **Waste Reduction**: Plans meals to utilize ingredients efficiently
+      - **Budget Management**: Works within your specified grocery budget
+
+      ## What We'll Deliver
+      Access to the NutriPrep platform, including meal planning, recipe database, and grocery integration services.
+
+      ## Timeline
+      - Month 1: Complete platform development
+      - Month 2: Finalize grocery store partnerships
+      - Month 3: Launch to backers
+      
+      Transform how you eat without the daily decision fatigue!
+    `,
+    goal: 40000,
+    amountRaised: 51200,
+    backers: 1284,
+    fundingType: FundingType.FLEXIBLE,
+    startDate: "2023-07-20T00:00:00Z",
+    endDate: "2023-09-20T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
+      {
+        id: "9-1",
+        date: "2023-08-05T12:30:00Z",
+        title: "Surpassed our goal!",
+        content: "We're excited to announce that NutriPrep has exceeded its funding goal with a month still remaining in our campaign! We're now working on expanding our grocery store partnerships nationally."
+      },
+      {
+        id: "9-2",
+        date: "2023-08-25T10:15:00Z",
+        title: "Recipe database milestone",
+        content: "Our culinary team has completed our initial recipe database with over 5,000 dishes spanning 15 different cuisine types!"
+      }
+    ],
+    rewards: [
+      {
+        id: "9-r1",
+        title: "Meal Planner Basic",
+        description: "One-year access to NutriPrep with standard meal planning and grocery integration.",
+        amount: 49,
+        delivery: "Month 3",
+        items: ["Platform access", "Weekly meal planning", "Recipe database", "Basic grocery integration"]
+      },
+      {
+        id: "9-r2",
+        title: "Family Nutrition",
+        description: "Two-year access to NutriPrep with family profiles, preference management, and premium grocery services.",
+        amount: 89,
+        delivery: "Month 3",
+        items: ["Platform access", "Multiple family profiles", "Advanced preference settings", "Premium grocery integration", "Nutritionist-reviewed plans"]
+      },
+      {
+        id: "9-r3",
+        title: "Nutrition Pro",
+        description: "Lifetime access to NutriPrep with all premium features and a personalized nutrition consultation.",
+        amount: 199,
+        delivery: "Month 3",
+        items: ["Lifetime platform access", "All premium features", "Priority support", "60-minute nutrition consultation", "Custom dietary analysis"]
+      }
+    ]
+  },
+  {
+    id: "10",
+    title: "CommuniLift: Ridesharing for Rural Communities",
+    slug: "communilift-rural-ridesharing",
+    category: CampaignCategory.COMMUNITY,
+    creatorId: "user10",
+    creatorName: "Sarah Martinez",
+    creatorAvatar: "/placeholder.svg",
+    bannerImage: "/placeholder.svg",
+    shortDescription: "A ridesharing platform designed specifically for underserved rural areas with limited transportation options.",
+    fullDescription: `
+      CommuniLift provides reliable transportation in rural areas where traditional ridesharing services don't operate and public transportation is limited or nonexistent.
+
+      ## The Problem
+      Rural communities face significant transportation challenges. Many residents—particularly elderly, disabled, or economically disadvantaged individuals—struggle with basic mobility needs.
+
+      ## Our Solution
+      CommuniLift delivers:
+      
+      - **Scheduled Rides**: Book transportation days or weeks in advance
+      - **Community Drivers**: Local residents serve their communities while earning income
+      - **Resource Pooling**: Combines private vehicles, community vans, and volunteer drivers
+      - **Accessibility Focus**: Specialized options for those with mobility challenges
+      - **Offline Functionality**: Works in areas with limited cell service
+
+      ## What We'll Deliver
+      The CommuniLift platform, including rider and driver apps, dispatching system, and community organization tools. We'll launch in three rural counties with plans for rapid expansion.
+
+      ## Timeline
+      - Month 1: Complete platform development
+      - Month 2: Driver recruitment and training in pilot communities
+      - Month 3: Launch in first three rural counties
+      - Month 4-6: Expansion to additional communities
+      
+      Help bring mobility to those who need it most!
+    `,
+    goal: 100000,
+    amountRaised: 87300,
+    backers: 942,
+    fundingType: FundingType.FLEXIBLE,
+    startDate: "2023-06-01T00:00:00Z",
+    endDate: "2023-09-01T00:00:00Z",
+    status: CampaignStatus.ACTIVE,
+    updates: [
+      {
+        id: "10-1",
+        date: "2023-06-15T09:45:00Z",
+        title: "Pilot communities selected",
+        content: "We've selected our three launch communities in consultation with local officials and community organizations. We're excited to announce that Bradford County, Harlan County, and Wheeler County will be our pilot locations!"
+      },
+      {
+        id: "10-2",
+        date: "2023-07-20T14:00:00Z",
+        title: "Driver program details",
+        content: "We've finalized our driver program, including training, compensation, and safety protocols. Driver recruitment will begin next week in our pilot counties."
+      },
+      {
+        id: "10-3",
+        date: "2023-08-10T11:30:00Z",
+        title: "Platform testing successful",
+        content: "We've completed our initial platform testing with community volunteers. The feedback has been invaluable, and we've made several improvements to enhance usability for both riders and drivers."
+      }
+    ],
+    rewards: [
+      {
+        id: "10-r1",
+        title: "Community Supporter",
+        description: "Recognition in our supporter gallery and $50 in ride credits when we launch in your area.",
+        amount: 25,
+        delivery: "Upon area launch",
+        items: ["Supporter recognition", "$50 ride credits", "Launch notification"]
+      },
+      {
+        id: "10-r2",
+        title: "Early Adopter",
+        description: "$150 in ride credits, priority access in new launch areas, and a CommuniLift sustainable tote bag.",
+        amount: 75,
+        delivery: "Upon area launch",
+        items: ["$150 ride credits", "Priority area access", "Sustainable tote bag", "Quarterly program updates"]
+      },
+      {
+        id: "10-r3",
+        title: "Community Champion",
+        description: "$400 in ride credits, ability to donate 10 rides to community members in need, and input into future launch locations.",
+        amount: 200,
+        delivery: "Upon area launch",
+        items: ["$400 ride credits", "10 community donation rides", "Launch location input", "Exclusive program updates", "Champion recognition"]
+      }
+    ]
   }
 ];
