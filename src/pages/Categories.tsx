@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,27 +20,23 @@ const Categories = () => {
     enabled: !!selectedCategory,
   });
 
-  // Helper function to calculate days left
   const calculateDaysLeft = (endDate: string) => {
     const end = new Date(endDate);
     const today = new Date();
     return Math.max(0, differenceInDays(end, today));
   };
 
-  // Category card component
   const CategoryCard = ({ category }: { category: CampaignCategory }) => {
-    // Get category image based on category
     const getCategoryImage = (cat: CampaignCategory) => {
       const images: Record<CampaignCategory, string> = {
         'technology': 'https://images.unsplash.com/photo-1518770660439-4636190af475',
-        'design': 'https://images.unsplash.com/photo-1561398309-61c6bd5e8365',
-        'film': 'https://images.unsplash.com/photo-1485846234645-a62644f84728',
-        'games': 'https://images.unsplash.com/photo-1511512578047-dfb367046420',
-        'music': 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4',
-        'food': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
-        'publishing': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d',
-        'fashion': 'https://images.unsplash.com/photo-1483985988355-763728e1935b',
-        'art': 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5',
+        'creative': 'https://images.unsplash.com/photo-1561398309-61c6bd5e8365',
+        'community': 'https://images.unsplash.com/photo-1485846234645-a62644f84728',
+        'business': 'https://images.unsplash.com/photo-1511512578047-dfb367046420',
+        'health': 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4',
+        'education': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
+        'environment': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d',
+        'other': 'https://images.unsplash.com/photo-1483985988355-763728e1935b',
       };
       return images[cat] || 'https://images.unsplash.com/photo-1531297484001-80022131f5a1';
     };
@@ -77,14 +72,12 @@ const Categories = () => {
         Explore campaigns by category or browse all of our innovative projects
       </p>
 
-      {/* Categories grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
         {Object.values(CAMPAIGN_CATEGORIES).map((category) => (
           <CategoryCard key={category} category={category} />
         ))}
       </div>
 
-      {/* Selected category campaigns */}
       {selectedCategory && (
         <div className="mt-12">
           <div className="flex items-center justify-between mb-6">
