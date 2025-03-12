@@ -55,3 +55,29 @@ export interface CampaignFilters {
   sort?: 'trending' | 'newest' | 'endingSoon' | 'mostFunded';
   search?: string;
 }
+
+// Constants to use as values (for fixing the type errors)
+export const CAMPAIGN_CATEGORIES = {
+  TECHNOLOGY: 'technology' as CampaignCategory,
+  CREATIVE: 'creative' as CampaignCategory,
+  COMMUNITY: 'community' as CampaignCategory,
+  BUSINESS: 'business' as CampaignCategory,
+  HEALTH: 'health' as CampaignCategory,
+  EDUCATION: 'education' as CampaignCategory,
+  ENVIRONMENT: 'environment' as CampaignCategory,
+  OTHER: 'other' as CampaignCategory
+};
+
+export const FUNDING_TYPES = {
+  FIXED: 'fixed' as FundingType,
+  FLEXIBLE: 'flexible' as FundingType
+};
+
+export const CAMPAIGN_STATUSES = {
+  DRAFT: 'draft' as CampaignStatus,
+  PENDING: 'pending' as CampaignStatus,
+  ACTIVE: 'active' as CampaignStatus,
+  FUNDED: 'funded' as CampaignStatus,
+  FAILED: 'failed' as CampaignStatus,
+  CANCELLED: 'cancelled' as CampaignStatus
+};
