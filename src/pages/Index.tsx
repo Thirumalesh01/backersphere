@@ -6,12 +6,20 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { campaignService } from "@/services/campaignService";
 import { ArrowRight, Award, Clock, DollarSign, Heart, Lightbulb, Rocket, TrendingUp } from "lucide-react";
+import { differenceInDays } from "date-fns";
 
 const Index = () => {
   const { data: campaigns, isLoading } = useQuery({
     queryKey: ['featuredCampaigns'],
-    queryFn: () => campaignService.getCampaigns({ limit: 6, sort: 'popular' }),
+    queryFn: () => campaignService.getCampaigns({ limit: 6, sort: 'trending' }),
   });
+
+  // Helper function to calculate days left
+  const calculateDaysLeft = (endDate: string) => {
+    const end = new Date(endDate);
+    const today = new Date();
+    return Math.max(0, differenceInDays(end, today));
+  };
 
   return (
     <div className="min-h-screen">
@@ -101,29 +109,31 @@ const Index = () => {
                   <Card className="overflow-hidden hover-scale h-full">
                     <CardContent className="p-0 h-full flex flex-col">
                       <img 
-                        src={campaign.coverImage} 
+                        src={campaign.images && campaign.images.length > 0 ? 
+                          campaign.images.find(img => img.isPrimary)?.url || campaign.images[0].url 
+                          : "/placeholder.svg"} 
                         alt={campaign.title} 
                         className="h-48 w-full object-cover"
                       />
                       <div className="p-4 flex-1 flex flex-col">
                         <Badge variant="outline" className="w-fit mb-2">{campaign.category}</Badge>
                         <h3 className="text-xl font-semibold line-clamp-2">{campaign.title}</h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2 mt-1">{campaign.shortDescription}</p>
+                        <p className="text-sm text-muted-foreground line-clamp-2 mt-1">{campaign.description}</p>
                         
                         <div className="mt-4 pt-4 border-t flex-1 flex flex-col justify-end">
                           <div className="w-full bg-secondary h-2 rounded-full mb-2">
                             <div 
                               className="bg-primary h-2 rounded-full" 
-                              style={{ width: `${Math.min(100, (campaign.amountRaised / campaign.fundingGoal) * 100)}%` }}
+                              style={{ width: `${Math.min(100, (campaign.currentAmount / campaign.fundingGoal) * 100)}%` }}
                             />
                           </div>
                           <div className="flex justify-between text-sm">
-                            <span className="font-semibold">${campaign.amountRaised.toLocaleString()}</span>
-                            <span className="text-muted-foreground">{Math.round((campaign.amountRaised / campaign.fundingGoal) * 100)}% of ${campaign.fundingGoal.toLocaleString()}</span>
+                            <span className="font-semibold">${campaign.currentAmount.toLocaleString()}</span>
+                            <span className="text-muted-foreground">{Math.round((campaign.currentAmount / campaign.fundingGoal) * 100)}% of ${campaign.fundingGoal.toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between text-sm mt-2">
                             <span className="text-muted-foreground flex items-center gap-1">
-                              <Clock className="h-4 w-4" /> {campaign.daysLeft} days left
+                              <Clock className="h-4 w-4" /> {calculateDaysLeft(campaign.endDate)} days left
                             </span>
                             <span className="text-muted-foreground">{campaign.backersCount} backers</span>
                           </div>
