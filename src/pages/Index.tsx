@@ -4,13 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { getCampaigns } from "@/services/campaignService";
+import { campaignService } from "@/services/campaignService";
 import { ArrowRight, Award, Clock, DollarSign, Heart, Lightbulb, Rocket, TrendingUp } from "lucide-react";
 
 const Index = () => {
   const { data: campaigns, isLoading } = useQuery({
     queryKey: ['featuredCampaigns'],
-    queryFn: () => getCampaigns({ limit: 6, sort: 'popular' }),
+    queryFn: () => campaignService.getCampaigns({ limit: 6, sort: 'popular' }),
   });
 
   return (
