@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -41,6 +40,7 @@ const CampaignDetail = () => {
   const [customAmount, setCustomAmount] = useState("");
   const [activeReward, setActiveReward] = useState<string | null>(null);
   const [donationSuccess, setDonationSuccess] = useState(false);
+  const [donationInProgress, setDonationInProgress] = useState(false);
 
   const { data: campaign, isLoading, error } = useQuery({
     queryKey: ['campaign', id],
@@ -65,11 +65,11 @@ const CampaignDetail = () => {
       return;
     }
 
-    setIsLoading(true);
+    setDonationInProgress(true);
     
     // Simulate payment processing
     setTimeout(() => {
-      setIsLoading(false);
+      setDonationInProgress(false);
       setDonationSuccess(true);
       
       toast({
@@ -82,7 +82,6 @@ const CampaignDetail = () => {
     }, 1500);
   };
 
-  const [isLoading, setIsLoading] = useState(false);
   const popularAmounts = [500, 1000, 2500, 5000];
 
   if (isLoading && !campaign) {
@@ -283,9 +282,9 @@ const CampaignDetail = () => {
                     <Button 
                       className="w-full gap-2"
                       onClick={handleDonate}
-                      disabled={isLoading}
+                      disabled={donationInProgress}
                     >
-                      {isLoading ? (
+                      {donationInProgress ? (
                         <>Processing...</>
                       ) : (
                         <>
