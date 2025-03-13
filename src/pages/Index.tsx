@@ -36,12 +36,16 @@ const Index = () => {
                 projects to life through community funding.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="hover-scale">
-                  Start Your Campaign
-                </Button>
-                <Button size="lg" variant="outline" className="hover-scale">
-                  Explore Projects
-                </Button>
+                <Link to="/start-campaign">
+                  <Button size="lg" className="hover-scale">
+                    Start Your Campaign
+                  </Button>
+                </Link>
+                <Link to="/explore">
+                  <Button size="lg" variant="outline" className="hover-scale">
+                    Explore Projects
+                  </Button>
+                </Link>
               </div>
               <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-4">
                 <div className="flex items-center gap-2">
@@ -61,7 +65,7 @@ const Index = () => {
             <div className="hidden md:block relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5 rounded-lg blur-3xl opacity-30" />
               <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Team collaborating on project" 
                 className="rounded-lg object-cover shadow-2xl relative w-full h-[400px]"
               />
@@ -78,9 +82,11 @@ const Index = () => {
               <h2 className="text-3xl font-bold">Featured Campaigns</h2>
               <p className="text-muted-foreground mt-2">Discover innovative projects that need your support</p>
             </div>
-            <Button variant="ghost" className="gap-2 hidden sm:flex">
-              View all campaigns <ArrowRight className="h-4 w-4" />
-            </Button>
+            <Link to="/explore">
+              <Button variant="ghost" className="gap-2 hidden sm:flex">
+                View all campaigns <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
           {isLoading ? (
@@ -147,9 +153,11 @@ const Index = () => {
           )}
           
           <div className="flex justify-center mt-8 sm:hidden">
-            <Button variant="outline" className="gap-2">
-              View all campaigns <ArrowRight className="h-4 w-4" />
-            </Button>
+            <Link to="/explore">
+              <Button variant="outline" className="gap-2">
+                View all campaigns <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -203,9 +211,11 @@ const Index = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Button size="lg" className="hover-scale">
-              Start Your Campaign
-            </Button>
+            <Link to="/start-campaign">
+              <Button size="lg" className="hover-scale">
+                Start Your Campaign
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -222,12 +232,16 @@ const Index = () => {
                 Our community is ready to support your next big idea.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-white/90 border-white">
-                  Create a Campaign
-                </Button>
-                <Button size="lg" variant="link" className="text-white">
-                  Learn More
-                </Button>
+                <Link to="/start-campaign">
+                  <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-white/90 border-white">
+                    Create a Campaign
+                  </Button>
+                </Link>
+                <Link to="/how-it-works">
+                  <Button size="lg" variant="link" className="text-white">
+                    Learn More
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

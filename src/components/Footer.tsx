@@ -59,12 +59,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/trending" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link to="/explore" className="text-sm text-muted-foreground hover:text-foreground">
                   Trending
                 </Link>
               </li>
               <li>
-                <Link to="/near-you" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link to="/explore" className="text-sm text-muted-foreground hover:text-foreground">
                   Near You
                 </Link>
               </li>
@@ -80,17 +80,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/creator-handbook" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link to="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground">
                   Creator Handbook
                 </Link>
               </li>
               <li>
-                <Link to="/help-center" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">
                   Blog
                 </Link>
               </li>
@@ -107,7 +107,7 @@ const Footer = () => {
               <Button size="sm" className="h-9">Subscribe</Button>
             </div>
             <p className="text-xs text-muted-foreground">
-              By subscribing, you agree to our <Link to="/terms" className="underline">Terms</Link> and <Link to="/privacy" className="underline">Privacy Policy</Link>.
+              By subscribing, you agree to our <Link to="/about" className="underline">Terms</Link> and <Link to="/about" className="underline">Privacy Policy</Link>.
             </p>
           </div>
         </div>
@@ -118,10 +118,10 @@ const Footer = () => {
               © {new Date().getFullYear()} CrowdFund. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
-              <Link to="/terms" className="hover:text-foreground">Terms</Link>
-              <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
-              <Link to="/cookies" className="hover:text-foreground">Cookies</Link>
-              <Link to="/accessibility" className="hover:text-foreground">Accessibility</Link>
+              <Link to="/about" className="hover:text-foreground">Terms</Link>
+              <Link to="/about" className="hover:text-foreground">Privacy</Link>
+              <Link to="/about" className="hover:text-foreground">Cookies</Link>
+              <Link to="/about" className="hover:text-foreground">Accessibility</Link>
             </div>
           </div>
         </div>
