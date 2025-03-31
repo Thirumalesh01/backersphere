@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -148,11 +149,11 @@ export default {
 				'exit': 'fade-out 0.3s ease-out, scale-out 0.2s ease-out'
 			},
 			backgroundImage: {
-				'gradient-soft': 'linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%)',
-				'gradient-warm': 'linear-gradient(180deg, rgb(254,100,121) 0%, rgb(251,221,186) 100%)',
-				'gradient-primary': 'linear-gradient(90deg, hsla(22, 100%, 78%, 1) 0%, hsla(2, 78%, 62%, 1) 100%)',
-				'gradient-card': 'linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%)',
-				'gradient-hero': 'linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)',
+				'gradient-soft': 'linear-gradient(135deg, #e0f7fa 0%, #80deea 100%)',
+				'gradient-warm': 'linear-gradient(180deg, #4db6ac 0%, #b2dfdb 100%)',
+				'gradient-primary': 'linear-gradient(90deg, #26a69a 0%, #00897b 100%)',
+				'gradient-card': 'linear-gradient(109.6deg, #e0f2f1 11.2%, #f5f5f5 91.1%)',
+				'gradient-hero': 'linear-gradient(90deg, #80cbc4 0%, #26a69a 100%)',
 			}
 		}
 	},
